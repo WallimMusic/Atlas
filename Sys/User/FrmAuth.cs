@@ -45,8 +45,7 @@ namespace Sys.User
         DataTable dtWhouse = new DataTable();
         DataTable dtBranch = new DataTable();
         StringBuilder stb = new StringBuilder();
-        int REf, RowCount;
-        DialogResult result;
+        int REf;
 
         void FillLookUp()
         {

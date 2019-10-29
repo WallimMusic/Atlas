@@ -50,25 +50,25 @@
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.navBarControl1 = new DevExpress.XtraNavBar.NavBarControl();
-            this.barSettings = new DevExpress.XtraNavBar.NavBarGroup();
-            this.navBarGroupControlContainer2 = new DevExpress.XtraNavBar.NavBarGroupControlContainer();
-            this.treeSettings = new DevExpress.XtraTreeList.TreeList();
-            this.colSettings = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            this.navBarGroupControlContainer1 = new DevExpress.XtraNavBar.NavBarGroupControlContainer();
-            this.treeStock = new DevExpress.XtraTreeList.TreeList();
-            this.cololaylar = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            this.repositoryItemHyperLinkEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit();
-            this.navBarGroupControlContainer3 = new DevExpress.XtraNavBar.NavBarGroupControlContainer();
-            this.treeSell = new DevExpress.XtraTreeList.TreeList();
-            this.treeListColumn1 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            this.repositoryItemHyperLinkEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit();
+            this.barBuy = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarGroupControlContainer4 = new DevExpress.XtraNavBar.NavBarGroupControlContainer();
             this.treeBuy = new DevExpress.XtraTreeList.TreeList();
             this.treeListColumn2 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.repositoryItemHyperLinkEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit();
+            this.navBarGroupControlContainer1 = new DevExpress.XtraNavBar.NavBarGroupControlContainer();
+            this.treeStock = new DevExpress.XtraTreeList.TreeList();
+            this.cololaylar = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.repositoryItemHyperLinkEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit();
+            this.navBarGroupControlContainer2 = new DevExpress.XtraNavBar.NavBarGroupControlContainer();
+            this.treeSettings = new DevExpress.XtraTreeList.TreeList();
+            this.colSettings = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.navBarGroupControlContainer3 = new DevExpress.XtraNavBar.NavBarGroupControlContainer();
+            this.treeSell = new DevExpress.XtraTreeList.TreeList();
+            this.treeListColumn1 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.repositoryItemHyperLinkEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit();
             this.barStock = new DevExpress.XtraNavBar.NavBarGroup();
             this.barSell = new DevExpress.XtraNavBar.NavBarGroup();
-            this.barBuy = new DevExpress.XtraNavBar.NavBarGroup();
+            this.barSettings = new DevExpress.XtraNavBar.NavBarGroup();
             this.barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
             this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).BeginInit();
@@ -76,17 +76,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).BeginInit();
             this.navBarControl1.SuspendLayout();
-            this.navBarGroupControlContainer2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.treeSettings)).BeginInit();
-            this.navBarGroupControlContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.treeStock)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemHyperLinkEdit1)).BeginInit();
-            this.navBarGroupControlContainer3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.treeSell)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemHyperLinkEdit2)).BeginInit();
             this.navBarGroupControlContainer4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.treeBuy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemHyperLinkEdit3)).BeginInit();
+            this.navBarGroupControlContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.treeStock)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemHyperLinkEdit1)).BeginInit();
+            this.navBarGroupControlContainer2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.treeSettings)).BeginInit();
+            this.navBarGroupControlContainer3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.treeSell)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemHyperLinkEdit2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -259,7 +259,7 @@
             // 
             // navBarControl1
             // 
-            this.navBarControl1.ActiveGroup = this.barStock;
+            this.navBarControl1.ActiveGroup = this.barBuy;
             this.navBarControl1.Controls.Add(this.navBarGroupControlContainer1);
             this.navBarControl1.Controls.Add(this.navBarGroupControlContainer2);
             this.navBarControl1.Controls.Add(this.navBarGroupControlContainer3);
@@ -279,57 +279,105 @@
             this.navBarControl1.TabIndex = 6;
             this.navBarControl1.Text = "navBarControl1";
             // 
-            // barSettings
+            // barBuy
             // 
-            this.barSettings.Caption = "Ayarlar";
-            this.barSettings.ControlContainer = this.navBarGroupControlContainer2;
-            this.barSettings.GroupClientHeight = 695;
-            this.barSettings.GroupStyle = DevExpress.XtraNavBar.NavBarGroupStyle.ControlContainer;
-            this.barSettings.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("barSettings.ImageOptions.SmallImage")));
-            this.barSettings.Name = "barSettings";
+            this.barBuy.Caption = "Satınalma Yönetimi";
+            this.barBuy.ControlContainer = this.navBarGroupControlContainer4;
+            this.barBuy.Expanded = true;
+            this.barBuy.GroupClientHeight = 567;
+            this.barBuy.GroupStyle = DevExpress.XtraNavBar.NavBarGroupStyle.ControlContainer;
+            this.barBuy.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("barBuy.ImageOptions.SmallImage")));
+            this.barBuy.Name = "barBuy";
             // 
-            // navBarGroupControlContainer2
+            // navBarGroupControlContainer4
             // 
-            this.navBarGroupControlContainer2.Appearance.BackColor = System.Drawing.SystemColors.Control;
-            this.navBarGroupControlContainer2.Appearance.Options.UseBackColor = true;
-            this.navBarGroupControlContainer2.Controls.Add(this.treeSettings);
-            this.navBarGroupControlContainer2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.navBarGroupControlContainer2.Name = "navBarGroupControlContainer2";
-            this.navBarGroupControlContainer2.Size = new System.Drawing.Size(340, 695);
-            this.navBarGroupControlContainer2.TabIndex = 1;
+            this.navBarGroupControlContainer4.Appearance.BackColor = System.Drawing.SystemColors.Control;
+            this.navBarGroupControlContainer4.Appearance.Options.UseBackColor = true;
+            this.navBarGroupControlContainer4.Controls.Add(this.treeBuy);
+            this.navBarGroupControlContainer4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.navBarGroupControlContainer4.Name = "navBarGroupControlContainer4";
+            this.navBarGroupControlContainer4.Size = new System.Drawing.Size(340, 690);
+            this.navBarGroupControlContainer4.TabIndex = 3;
             // 
-            // treeSettings
+            // treeBuy
             // 
-            this.treeSettings.Columns.AddRange(new DevExpress.XtraTreeList.Columns.TreeListColumn[] {
-            this.colSettings});
-            this.treeSettings.Cursor = System.Windows.Forms.Cursors.Default;
-            this.treeSettings.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treeSettings.Location = new System.Drawing.Point(0, 0);
-            this.treeSettings.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.treeSettings.MinWidth = 23;
-            this.treeSettings.Name = "treeSettings";
-            this.treeSettings.BeginUnboundLoad();
-            this.treeSettings.AppendNode(new object[] {
-            "Stok Sınfları"}, -1, 4, 4, -1);
-            this.treeSettings.EndUnboundLoad();
-            this.treeSettings.OptionsView.AutoWidth = false;
-            this.treeSettings.OptionsView.FocusRectStyle = DevExpress.XtraTreeList.DrawFocusRectStyle.RowFocus;
-            this.treeSettings.SelectImageList = this.ımageList1;
-            this.treeSettings.Size = new System.Drawing.Size(340, 695);
-            this.treeSettings.TabIndex = 0;
-            this.treeSettings.TreeLevelWidth = 21;
-            this.treeSettings.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.TreeSettings_MouseDoubleClick);
+            this.treeBuy.Columns.AddRange(new DevExpress.XtraTreeList.Columns.TreeListColumn[] {
+            this.treeListColumn2});
+            this.treeBuy.Cursor = System.Windows.Forms.Cursors.SizeWE;
+            this.treeBuy.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.treeBuy.HorzScrollVisibility = DevExpress.XtraTreeList.ScrollVisibility.Never;
+            this.treeBuy.Location = new System.Drawing.Point(0, 0);
+            this.treeBuy.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.treeBuy.MinWidth = 23;
+            this.treeBuy.Name = "treeBuy";
+            this.treeBuy.BeginUnboundLoad();
+            this.treeBuy.AppendNode(new object[] {
+            "Tanımlar"}, -1);
+            this.treeBuy.AppendNode(new object[] {
+            "Tedarikçi Cari Hesapları"}, 0);
+            this.treeBuy.AppendNode(new object[] {
+            "Satınalma Fiyat Listeleri"}, 0);
+            this.treeBuy.AppendNode(new object[] {
+            "Satınalma Hedefleri"}, 0);
+            this.treeBuy.AppendNode(new object[] {
+            "İşlemler"}, -1, 1, 1, -1);
+            this.treeBuy.AppendNode(new object[] {
+            "Talep Yönetimi"}, 4, 1, 1, -1);
+            this.treeBuy.AppendNode(new object[] {
+            "Satınalma Talebi"}, 5, 1, 1, -1);
+            this.treeBuy.AppendNode(new object[] {
+            "Hizmet Alım Talebi"}, 5, 1, 1, -1);
+            this.treeBuy.AppendNode(new object[] {
+            "Stok Nakil Talebi"}, 5, 1, 1, -1);
+            this.treeBuy.AppendNode(new object[] {
+            "Alım Onayla"}, 5, 1, 1, -1);
+            this.treeBuy.AppendNode(new object[] {
+            "Servisler"}, -1, 2, 2, -1);
+            this.treeBuy.AppendNode(new object[] {
+            "Toplu Satınalma Talebi Kapatma"}, 10, 2, 2, -1);
+            this.treeBuy.AppendNode(new object[] {
+            "Toplu Hizmet Alım Talebi Kapatma"}, 10, 2, 2, -1);
+            this.treeBuy.AppendNode(new object[] {
+            "Toplu Stok Nakil Talebi Kapatma"}, 10, 2, 2, -1);
+            this.treeBuy.AppendNode(new object[] {
+            "Raporlar"}, -1, 3, 3, -1);
+            this.treeBuy.AppendNode(new object[] {
+            "Bekleyen Siparişler Raporu"}, 14, 3, 3, -1);
+            this.treeBuy.AppendNode(new object[] {
+            "Bekleyen Hizmet Alım Raporu"}, 14, 3, 3, -1);
+            this.treeBuy.AppendNode(new object[] {
+            "Stok Nakil Raporları"}, 14, 3, 3, -1);
+            this.treeBuy.AppendNode(new object[] {
+            "Onaylanmış Talepler"}, 14, 3, 3, -1);
+            this.treeBuy.EndUnboundLoad();
+            this.treeBuy.OptionsBehavior.AutoScrollOnSorting = false;
+            this.treeBuy.OptionsView.AutoWidth = false;
+            this.treeBuy.OptionsView.FocusRectStyle = DevExpress.XtraTreeList.DrawFocusRectStyle.RowFullFocus;
+            this.treeBuy.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryItemHyperLinkEdit3});
+            this.treeBuy.SelectImageList = this.ımageList1;
+            this.treeBuy.Size = new System.Drawing.Size(340, 690);
+            this.treeBuy.TabIndex = 2;
+            this.treeBuy.TreeLevelWidth = 21;
+            this.treeBuy.VertScrollVisibility = DevExpress.XtraTreeList.ScrollVisibility.Never;
+            this.treeBuy.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.treeBuy_MouseDoubleClick);
             // 
-            // colSettings
+            // treeListColumn2
             // 
-            this.colSettings.Caption = "Ayar İşlemleri";
-            this.colSettings.FieldName = "Ayar İşlemleri";
-            this.colSettings.MinWidth = 61;
-            this.colSettings.Name = "colSettings";
-            this.colSettings.OptionsColumn.AllowEdit = false;
-            this.colSettings.Visible = true;
-            this.colSettings.VisibleIndex = 0;
-            this.colSettings.Width = 322;
+            this.treeListColumn2.Caption = " ";
+            this.treeListColumn2.FieldName = "Stok Olayları";
+            this.treeListColumn2.MinWidth = 82;
+            this.treeListColumn2.Name = "treeListColumn2";
+            this.treeListColumn2.OptionsColumn.AllowEdit = false;
+            this.treeListColumn2.OptionsColumn.ShowInExpressionEditor = false;
+            this.treeListColumn2.Visible = true;
+            this.treeListColumn2.VisibleIndex = 0;
+            this.treeListColumn2.Width = 322;
+            // 
+            // repositoryItemHyperLinkEdit3
+            // 
+            this.repositoryItemHyperLinkEdit3.AutoHeight = false;
+            this.repositoryItemHyperLinkEdit3.Name = "repositoryItemHyperLinkEdit3";
             // 
             // navBarGroupControlContainer1
             // 
@@ -421,6 +469,49 @@
             this.repositoryItemHyperLinkEdit1.AutoHeight = false;
             this.repositoryItemHyperLinkEdit1.Name = "repositoryItemHyperLinkEdit1";
             // 
+            // navBarGroupControlContainer2
+            // 
+            this.navBarGroupControlContainer2.Appearance.BackColor = System.Drawing.SystemColors.Control;
+            this.navBarGroupControlContainer2.Appearance.Options.UseBackColor = true;
+            this.navBarGroupControlContainer2.Controls.Add(this.treeSettings);
+            this.navBarGroupControlContainer2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.navBarGroupControlContainer2.Name = "navBarGroupControlContainer2";
+            this.navBarGroupControlContainer2.Size = new System.Drawing.Size(340, 695);
+            this.navBarGroupControlContainer2.TabIndex = 1;
+            // 
+            // treeSettings
+            // 
+            this.treeSettings.Columns.AddRange(new DevExpress.XtraTreeList.Columns.TreeListColumn[] {
+            this.colSettings});
+            this.treeSettings.Cursor = System.Windows.Forms.Cursors.Default;
+            this.treeSettings.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.treeSettings.Location = new System.Drawing.Point(0, 0);
+            this.treeSettings.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.treeSettings.MinWidth = 23;
+            this.treeSettings.Name = "treeSettings";
+            this.treeSettings.BeginUnboundLoad();
+            this.treeSettings.AppendNode(new object[] {
+            "Stok Sınfları"}, -1, 4, 4, -1);
+            this.treeSettings.EndUnboundLoad();
+            this.treeSettings.OptionsView.AutoWidth = false;
+            this.treeSettings.OptionsView.FocusRectStyle = DevExpress.XtraTreeList.DrawFocusRectStyle.RowFocus;
+            this.treeSettings.SelectImageList = this.ımageList1;
+            this.treeSettings.Size = new System.Drawing.Size(340, 695);
+            this.treeSettings.TabIndex = 0;
+            this.treeSettings.TreeLevelWidth = 21;
+            this.treeSettings.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.TreeSettings_MouseDoubleClick);
+            // 
+            // colSettings
+            // 
+            this.colSettings.Caption = "Ayar İşlemleri";
+            this.colSettings.FieldName = "Ayar İşlemleri";
+            this.colSettings.MinWidth = 61;
+            this.colSettings.Name = "colSettings";
+            this.colSettings.OptionsColumn.AllowEdit = false;
+            this.colSettings.Visible = true;
+            this.colSettings.VisibleIndex = 0;
+            this.colSettings.Width = 322;
+            // 
             // navBarGroupControlContainer3
             // 
             this.navBarGroupControlContainer3.Appearance.BackColor = System.Drawing.SystemColors.Control;
@@ -428,7 +519,7 @@
             this.navBarGroupControlContainer3.Controls.Add(this.treeSell);
             this.navBarGroupControlContainer3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.navBarGroupControlContainer3.Name = "navBarGroupControlContainer3";
-            this.navBarGroupControlContainer3.Size = new System.Drawing.Size(340, 567);
+            this.navBarGroupControlContainer3.Size = new System.Drawing.Size(340, 690);
             this.navBarGroupControlContainer3.TabIndex = 2;
             // 
             // treeSell
@@ -476,10 +567,11 @@
             this.treeSell.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemHyperLinkEdit2});
             this.treeSell.SelectImageList = this.ımageList1;
-            this.treeSell.Size = new System.Drawing.Size(340, 567);
+            this.treeSell.Size = new System.Drawing.Size(340, 690);
             this.treeSell.TabIndex = 1;
             this.treeSell.TreeLevelWidth = 21;
             this.treeSell.VertScrollVisibility = DevExpress.XtraTreeList.ScrollVisibility.Never;
+            this.treeSell.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.treeSell_MouseDoubleClick);
             // 
             // treeListColumn1
             // 
@@ -498,100 +590,10 @@
             this.repositoryItemHyperLinkEdit2.AutoHeight = false;
             this.repositoryItemHyperLinkEdit2.Name = "repositoryItemHyperLinkEdit2";
             // 
-            // navBarGroupControlContainer4
-            // 
-            this.navBarGroupControlContainer4.Appearance.BackColor = System.Drawing.SystemColors.Control;
-            this.navBarGroupControlContainer4.Appearance.Options.UseBackColor = true;
-            this.navBarGroupControlContainer4.Controls.Add(this.treeBuy);
-            this.navBarGroupControlContainer4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.navBarGroupControlContainer4.Name = "navBarGroupControlContainer4";
-            this.navBarGroupControlContainer4.Size = new System.Drawing.Size(340, 567);
-            this.navBarGroupControlContainer4.TabIndex = 3;
-            // 
-            // treeBuy
-            // 
-            this.treeBuy.Columns.AddRange(new DevExpress.XtraTreeList.Columns.TreeListColumn[] {
-            this.treeListColumn2});
-            this.treeBuy.Cursor = System.Windows.Forms.Cursors.SizeWE;
-            this.treeBuy.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treeBuy.HorzScrollVisibility = DevExpress.XtraTreeList.ScrollVisibility.Never;
-            this.treeBuy.Location = new System.Drawing.Point(0, 0);
-            this.treeBuy.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.treeBuy.MinWidth = 23;
-            this.treeBuy.Name = "treeBuy";
-            this.treeBuy.BeginUnboundLoad();
-            this.treeBuy.AppendNode(new object[] {
-            "Tanımlar"}, -1);
-            this.treeBuy.AppendNode(new object[] {
-            "Tedarikçi Cari Hesapları"}, 0);
-            this.treeBuy.AppendNode(new object[] {
-            "Satınalma Fiyat Listeleri"}, 0);
-            this.treeBuy.AppendNode(new object[] {
-            "Satınalma Hedefleri"}, 0);
-            this.treeBuy.AppendNode(new object[] {
-            "İşlemler"}, -1, 1, 1, -1);
-            this.treeBuy.AppendNode(new object[] {
-            "Talep Yönetimi"}, 4, 1, 1, -1);
-            this.treeBuy.AppendNode(new object[] {
-            "Satınalma Talebi"}, 5, 1, 1, -1);
-            this.treeBuy.AppendNode(new object[] {
-            "Hizmet Alım Talebi"}, 5, 1, 1, -1);
-            this.treeBuy.AppendNode(new object[] {
-            "Stok Nakil Talebi"}, 5, 1, 1, -1);
-            this.treeBuy.AppendNode(new object[] {
-            "Alım Onayla"}, 5, 1, 1, -1);
-            this.treeBuy.AppendNode(new object[] {
-            "Servisler"}, -1, 2, 2, -1);
-            this.treeBuy.AppendNode(new object[] {
-            "Toplu Satınalma Talebi Kapatma"}, 10, 2, 2, -1);
-            this.treeBuy.AppendNode(new object[] {
-            "Toplu Hizmet Alım Talebi Kapatma"}, 10, 2, 2, -1);
-            this.treeBuy.AppendNode(new object[] {
-            "Toplu Stok Nakil Talebi Kapatma"}, 10, 2, 2, -1);
-            this.treeBuy.AppendNode(new object[] {
-            "Raporlar"}, -1, 3, 3, -1);
-            this.treeBuy.AppendNode(new object[] {
-            "Bekleyen Siparişler Raporu"}, 14, 3, 3, -1);
-            this.treeBuy.AppendNode(new object[] {
-            "Bekleyen Hizmet Alım Raporu"}, 14, 3, 3, -1);
-            this.treeBuy.AppendNode(new object[] {
-            "Stok Nakil Raporları"}, 14, 3, 3, -1);
-            this.treeBuy.AppendNode(new object[] {
-            "Onaylanmış Talepler"}, 14, 3, 3, -1);
-            this.treeBuy.EndUnboundLoad();
-            this.treeBuy.OptionsBehavior.AutoScrollOnSorting = false;
-            this.treeBuy.OptionsView.AutoWidth = false;
-            this.treeBuy.OptionsView.FocusRectStyle = DevExpress.XtraTreeList.DrawFocusRectStyle.RowFocus;
-            this.treeBuy.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.repositoryItemHyperLinkEdit3});
-            this.treeBuy.SelectImageList = this.ımageList1;
-            this.treeBuy.Size = new System.Drawing.Size(340, 567);
-            this.treeBuy.TabIndex = 2;
-            this.treeBuy.TreeLevelWidth = 21;
-            this.treeBuy.VertScrollVisibility = DevExpress.XtraTreeList.ScrollVisibility.Never;
-            // 
-            // treeListColumn2
-            // 
-            this.treeListColumn2.Caption = " ";
-            this.treeListColumn2.FieldName = "Stok Olayları";
-            this.treeListColumn2.MinWidth = 82;
-            this.treeListColumn2.Name = "treeListColumn2";
-            this.treeListColumn2.OptionsColumn.AllowEdit = false;
-            this.treeListColumn2.OptionsColumn.ShowInExpressionEditor = false;
-            this.treeListColumn2.Visible = true;
-            this.treeListColumn2.VisibleIndex = 0;
-            this.treeListColumn2.Width = 322;
-            // 
-            // repositoryItemHyperLinkEdit3
-            // 
-            this.repositoryItemHyperLinkEdit3.AutoHeight = false;
-            this.repositoryItemHyperLinkEdit3.Name = "repositoryItemHyperLinkEdit3";
-            // 
             // barStock
             // 
             this.barStock.Caption = "Stok Yönetimi";
             this.barStock.ControlContainer = this.navBarGroupControlContainer1;
-            this.barStock.Expanded = true;
             this.barStock.GroupClientHeight = 562;
             this.barStock.GroupStyle = DevExpress.XtraNavBar.NavBarGroupStyle.ControlContainer;
             this.barStock.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barStock.ImageOptions.LargeImage")));
@@ -607,14 +609,14 @@
             this.barSell.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("barSell.ImageOptions.SmallImage")));
             this.barSell.Name = "barSell";
             // 
-            // barBuy
+            // barSettings
             // 
-            this.barBuy.Caption = "Satınalma Yönetimi";
-            this.barBuy.ControlContainer = this.navBarGroupControlContainer4;
-            this.barBuy.GroupClientHeight = 567;
-            this.barBuy.GroupStyle = DevExpress.XtraNavBar.NavBarGroupStyle.ControlContainer;
-            this.barBuy.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("barBuy.ImageOptions.SmallImage")));
-            this.barBuy.Name = "barBuy";
+            this.barSettings.Caption = "Ayarlar";
+            this.barSettings.ControlContainer = this.navBarGroupControlContainer2;
+            this.barSettings.GroupClientHeight = 695;
+            this.barSettings.GroupStyle = DevExpress.XtraNavBar.NavBarGroupStyle.ControlContainer;
+            this.barSettings.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("barSettings.ImageOptions.SmallImage")));
+            this.barSettings.Name = "barSettings";
             // 
             // barButtonItem6
             // 
@@ -656,17 +658,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).EndInit();
             this.navBarControl1.ResumeLayout(false);
-            this.navBarGroupControlContainer2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.treeSettings)).EndInit();
-            this.navBarGroupControlContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.treeStock)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemHyperLinkEdit1)).EndInit();
-            this.navBarGroupControlContainer3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.treeSell)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemHyperLinkEdit2)).EndInit();
             this.navBarGroupControlContainer4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.treeBuy)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemHyperLinkEdit3)).EndInit();
+            this.navBarGroupControlContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.treeStock)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemHyperLinkEdit1)).EndInit();
+            this.navBarGroupControlContainer2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.treeSettings)).EndInit();
+            this.navBarGroupControlContainer3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.treeSell)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemHyperLinkEdit2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

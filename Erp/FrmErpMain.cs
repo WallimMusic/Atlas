@@ -31,6 +31,7 @@ namespace Erp
         public int userRef, firmRef, authRef;
 
         public void Viewchild(AtlasForm _form)
+
         {
             //Check Before Open
             if (!IsFormActive(_form))
@@ -49,7 +50,6 @@ namespace Erp
                 {
                     if (form.Text == item.Text)
                     {
-                        item.Close();
                         IsOpened = false;
                     }
                 }

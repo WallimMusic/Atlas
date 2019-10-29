@@ -30,6 +30,7 @@ namespace Erp
         SaveFileDialog sfd = new SaveFileDialog();
         OpenFileDialog ofd = new OpenFileDialog();
         FrmErpMain f = (FrmErpMain)Application.OpenForms["FrmErpMain"];
+
         #region Methods
         void FillData()
         {
@@ -44,10 +45,11 @@ namespace Erp
 
         void Add()
         {
+            
             newForm._Ref = 0;
             newForm._FormMod = Enums.enmFormMod.Yeni;
             f.Viewchild(newForm);
-          
+
             if (newForm.DialogResult == DialogResult.OK)
                 FillData();
         }
@@ -75,7 +77,6 @@ namespace Erp
                 if (grdList.RowCount > 0)
                     if (grdList.FocusedRowHandle != -1)
                     {
-
                         newForm._Ref = int.Parse(grdList.GetFocusedRowCellValue("Ref").ToString());
                         newForm._MenuNo = this._MenuNo;
                         newForm._FormMod = Enums.enmFormMod.Guncelle;

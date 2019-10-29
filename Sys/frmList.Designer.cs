@@ -348,6 +348,5 @@
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
         private DevExpress.XtraGrid.GridControl dgwList;
         private DevExpress.XtraGrid.Views.Grid.GridView grdList;
-        private System.ComponentModel.IContainer components;
     }
 }

@@ -48,7 +48,8 @@ namespace Sys
             newForm._Ref = 0;
             newForm._FormMod = enmFormMod.Yeni;
             //yeniForm.MdiParent = frmAnaMenu.ActiveForm;
-            newForm.ShowDialog();
+            newForm.MdiParent = FrmSysMain.ActiveForm;
+            newForm.Show();
 
             if (newForm.DialogResult == DialogResult.OK)
                 FillData();

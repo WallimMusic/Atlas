@@ -148,12 +148,12 @@
             this.btnFolderAdd = new DevExpress.XtraBars.BarButtonItem();
             this.btnFolderDelete = new DevExpress.XtraBars.BarButtonItem();
             this.btnFolderOpen = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.pmBarcode = new DevExpress.XtraBars.PopupMenu(this.components);
             this.pmFolder = new DevExpress.XtraBars.PopupMenu(this.components);
-            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.navBar)).BeginInit();
             this.navBar.SuspendLayout();
             this.navBarGroupControlContainer1.SuspendLayout();
@@ -229,6 +229,7 @@
             // 
             this.navInfo.Caption = "Genel Kart Bilgileri";
             this.navInfo.ControlContainer = this.navBarGroupControlContainer1;
+            this.navInfo.Expanded = true;
             this.navInfo.GroupClientHeight = 183;
             this.navInfo.GroupStyle = DevExpress.XtraNavBar.NavBarGroupStyle.ControlContainer;
             this.navInfo.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navInfo.ImageOptions.SmallImage")));
@@ -1316,7 +1317,6 @@
             // 
             this.navImage.Caption = "Kart Resimleri";
             this.navImage.ControlContainer = this.navBarGroupControlContainer5;
-            this.navImage.Expanded = true;
             this.navImage.GroupClientHeight = 265;
             this.navImage.GroupStyle = DevExpress.XtraNavBar.NavBarGroupStyle.ControlContainer;
             this.navImage.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navImage.ImageOptions.SmallImage")));
@@ -1497,6 +1497,12 @@
             this.btnFolderOpen.Name = "btnFolderOpen";
             this.btnFolderOpen.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnFolderOpen_ItemClick);
             // 
+            // barButtonItem2
+            // 
+            this.barButtonItem2.Caption = "barButtonItem2";
+            this.barButtonItem2.Id = 2;
+            this.barButtonItem2.Name = "barButtonItem2";
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -1529,12 +1535,6 @@
             this.pmFolder.ItemLinks.Add(this.btnFolderDelete);
             this.pmFolder.Name = "pmFolder";
             this.pmFolder.Ribbon = this.ribbonControl1;
-            // 
-            // barButtonItem2
-            // 
-            this.barButtonItem2.Caption = "barButtonItem2";
-            this.barButtonItem2.Id = 2;
-            this.barButtonItem2.Name = "barButtonItem2";
             // 
             // FrmStokCard
             // 

@@ -50,12 +50,12 @@ namespace Obje.Companents
 
         private void flashDate_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == (char)Keys.Enter)
-            {
-                string dateValue = flashDate.Text;
-                DateTime value = DateTime.ParseExact(dateValue, "ddMMyyyy", null);
-                flashDate.Text = value.ToShortDateString();
-            }
+            //if (e.KeyChar == (char)Keys.Enter)
+            //{
+            //    string dateValue = flashDate.Text;
+            //    DateTime value = DateTime.ParseExact(dateValue, "ddMMyyyy", null);
+            //    flashDate.Text = value.ToShortDateString();
+            //}
         }
     }
 }

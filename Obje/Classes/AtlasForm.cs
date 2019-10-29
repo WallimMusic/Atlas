@@ -36,9 +36,9 @@ namespace Obje.Classes
             // 
             this.ClientSize = new System.Drawing.Size(284, 261);
             this.Name = "AtlasForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AtlasForm_FormClosing);
             this.Load += new System.EventHandler(this.AtlasForm_Load);
             this.ResumeLayout(false);
-    
 
         }
 
@@ -50,6 +50,11 @@ namespace Obje.Classes
         public AtlasForm()
         {
             this.Text = this._FormText;
+        }
+
+        private void AtlasForm_FormClosing(object sender, System.Windows.Forms.FormClosingEventArgs e)
+        {
+            this.Dispose();
         }
     }
 }

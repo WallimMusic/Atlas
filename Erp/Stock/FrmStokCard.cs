@@ -240,7 +240,7 @@ namespace Erp.Stock
                 row["cardRef"] = dtFillFolder.Rows[t][1].ToString();
                 row["Dosya Adı"] = dtFillFolder.Rows[t][2].ToString();
                 row["Sistem Dosya Adı"] = dtFillFolder.Rows[t][3].ToString();
-                row["Dosya Yolu"] = dtFillFolder.Rows[t][4].ToString();
+                row["Dosya Yolu"] = dtFillFolder.Rows[t][4].ToString() + "/" + dtFillFolder.Rows[t][3].ToString();
                 row["Dosya Tipi"] = dtFillFolder.Rows[t][5].ToString();
                 dtFOlder.Rows.Add(row);
                 grdFolder.RefreshData();
@@ -850,8 +850,6 @@ namespace Erp.Stock
         {
             this.Close();
         }
-
-
 
         private void btnFolderAdd_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
