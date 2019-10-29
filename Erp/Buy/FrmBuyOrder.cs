@@ -54,58 +54,63 @@ namespace Erp.Buy
 
         void FillData()
         {
+
             db.AddParameterValue("@ref", this._Ref);
             DataTable dtPlug = db.GetDataTable("select * from StBuyOrder where Ref=@ref");
-            txtCode.SetString(dtPlug.Rows[0][1].ToString());
-            txtName.SetString(dtPlug.Rows[0][2].ToString());
-            dtpPlugDate.SetDate(DateTime.Parse(dtPlug.Rows[0][3].ToString()));
-            ledBranch.SetValue(int.Parse(dtPlug.Rows[0][4].ToString()));
-            ledWhouse.SetValue(int.Parse(dtPlug.Rows[0][5].ToString()));
-            txtDesc.SetString(dtPlug.Rows[0][6].ToString());
-            ledCustomer.SetValue(int.Parse(dtPlug.Rows[0]["customerRef"].ToString()));
-
-            db.AddParameterValue("@ref", this._Ref);
-            DataTable dtPlugDetails = db.GetDataTable("select * from StBuyOrderDetails where orderRef=@ref");
-            for (int i = 0; i < dtPlugDetails.Rows.Count; i++)
+            if (!string.IsNullOrEmpty(dtPlug.Rows[0][1].ToString()))
             {
-                DataRow row = dtBox.NewRow();
-                row["Ref"] = dtPlugDetails.Rows[i]["Ref"];
-                row["Fiş Ref"] = dtPlugDetails.Rows[i]["orderRef"];
-                row["Kart Ref"] = dtPlugDetails.Rows[i]["cardRef"];
-                row["Kart Kodu"] = dtPlugDetails.Rows[i]["cardCode"];
-                db.parameterDelete();
 
-                db.AddParameterValue("@ref", dtPlugDetails.Rows[i]["cardRef"], SqlDbType.Int);
-                row["Kart Adı"] = db.GetScalarValue("select name from StStockCard where ref=@ref").ToString();
-                db.parameterDelete();
-                row["Barkod"] = dtPlugDetails.Rows[i]["barcode"];
 
-                db.AddParameterValue("@barcode", dtPlugDetails.Rows[i]["barcode"]);
-                row["Renk"] = db.GetScalarValue("select color from StStockCardBarcodes where barcode=@barcode");
-                db.AddParameterValue("@barcode", dtPlugDetails.Rows[i]["barcode"]);
-                row["Beden"] = db.GetScalarValue("select size from StStockCardBarcodes where barcode=@barcode");
-                db.parameterDelete();
+                txtCode.SetString(dtPlug.Rows[0][1].ToString());
+                txtName.SetString(dtPlug.Rows[0][2].ToString());
+                dtpPlugDate.SetDate(DateTime.Parse(dtPlug.Rows[0][3].ToString()));
+                ledBranch.SetValue(int.Parse(dtPlug.Rows[0][4].ToString()));
+                ledWhouse.SetValue(int.Parse(dtPlug.Rows[0][5].ToString()));
+                txtDesc.SetString(dtPlug.Rows[0][6].ToString());
+                ledCustomer.SetValue(int.Parse(dtPlug.Rows[0]["customerRef"].ToString()));
 
-                row["Birim Ref"] = dtPlugDetails.Rows[i]["unitRef"];
-                sysDb.AddParameterValue("@ref", dtPlugDetails.Rows[i]["unitRef"], SqlDbType.Int);
-                row["Birim Kodu"] = sysDb.GetScalarValue("select symbol from sysUnit where Ref=@ref").ToString();
-                sysDb.parameterDelete();
-                row["Miktar"] = dtPlugDetails.Rows[i]["quantity"];
-                row["Birim Fiyat"] = dtPlugDetails.Rows[i]["unitPrice"];
-                row["Toplam Tutar"] = dtPlugDetails.Rows[i]["linePrice"];
-                row["Satır Açıklaması"] = dtPlugDetails.Rows[i]["lineDescription"];
+                db.AddParameterValue("@ref", this._Ref);
+                DataTable dtPlugDetails = db.GetDataTable("select * from StBuyOrderDetails where orderRef=@ref");
+                for (int i = 0; i < dtPlugDetails.Rows.Count; i++)
+                {
+                    DataRow row = dtBox.NewRow();
+                    row["Ref"] = dtPlugDetails.Rows[i]["Ref"];
+                    row["Fiş Ref"] = dtPlugDetails.Rows[i]["orderRef"];
+                    row["Kart Ref"] = dtPlugDetails.Rows[i]["cardRef"];
+                    row["Kart Kodu"] = dtPlugDetails.Rows[i]["cardCode"];
+                    db.parameterDelete();
 
-                dtBox.Rows.Add(row);
+                    db.AddParameterValue("@ref", dtPlugDetails.Rows[i]["cardRef"], SqlDbType.Int);
+                    row["Kart Adı"] = db.GetScalarValue("select name from StStockCard where ref=@ref").ToString();
+                    db.parameterDelete();
+                    row["Barkod"] = dtPlugDetails.Rows[i]["barcode"];
+
+                    db.AddParameterValue("@barcode", dtPlugDetails.Rows[i]["barcode"]);
+                    row["Renk"] = db.GetScalarValue("select color from StStockCardBarcodes where barcode=@barcode");
+                    db.AddParameterValue("@barcode", dtPlugDetails.Rows[i]["barcode"]);
+                    row["Beden"] = db.GetScalarValue("select size from StStockCardBarcodes where barcode=@barcode");
+                    db.parameterDelete();
+
+                    row["Birim Ref"] = dtPlugDetails.Rows[i]["unitRef"];
+                    sysDb.AddParameterValue("@ref", dtPlugDetails.Rows[i]["unitRef"], SqlDbType.Int);
+                    row["Birim Kodu"] = sysDb.GetScalarValue("select symbol from sysUnit where Ref=@ref").ToString();
+                    sysDb.parameterDelete();
+                    row["Miktar"] = dtPlugDetails.Rows[i]["quantity"];
+                    row["Birim Fiyat"] = dtPlugDetails.Rows[i]["unitPrice"];
+                    row["Toplam Tutar"] = dtPlugDetails.Rows[i]["linePrice"];
+                    row["Satır Açıklaması"] = dtPlugDetails.Rows[i]["lineDescription"];
+
+                    dtBox.Rows.Add(row);
+
+                }
+
+                grdGrid.RefreshData();
+
+                RowCount = grdGrid.RowCount;
+                Calculate();
+                grdGrid.BestFitColumns();
 
             }
-
-            grdGrid.RefreshData();
-
-            RowCount = grdGrid.RowCount;
-            Calculate();
-            grdGrid.BestFitColumns();
-
-
         }
 
         void SetForm()
@@ -313,7 +318,13 @@ namespace Erp.Buy
             {
                 if (!string.IsNullOrEmpty(grdGrid.GetRowCellValue(i, "Miktar").ToString()))
                 {
-                    decimal total = decimal.Parse(grdGrid.GetRowCellValue(i, "Miktar").ToString()) * decimal.Parse(grdGrid.GetRowCellValue(i, "Birim Fiyat").ToString());
+                    string unitPrice = grdGrid.GetRowCellValue(i, "Birim Fiyat").ToString();
+                    unitPrice = unitPrice.Replace(",", ".");
+
+
+                    grdGrid.SetFocusedRowCellValue("Birim Fiyat", unitPrice);
+
+                    decimal total = decimal.Parse(grdGrid.GetRowCellValue(i, "Miktar").ToString()) * decimal.Parse(unitPrice);
                     grdGrid.SetRowCellValue(i, "Toplam Tutar", total);
 
 
@@ -412,9 +423,16 @@ namespace Erp.Buy
                             row["Renk"] = dtSearch.Rows[0]["Renk"].ToString();
                             row["Beden"] = dtSearch.Rows[0]["Beden"].ToString();
                             row["Barkod"] = barcode;
-                            row["Birim Ref"] = dtSearch.Rows[0]["Birim Ref"].ToString();
-                            row["Birim Kodu"] = dtSearch.Rows[0]["Birim Kodu"].ToString();
+                            row["Birim Kodu"] = "Adet";
                             row["Miktar"] = 1;
+
+                            db.AddParameterValue("@barcode", barcode);
+                            db.AddParameterValue("@branchRef", ledBranch.GetValue());
+                            string price = db.GetScalarValue("select  dbo.Tools_GetLastActiveBuyPrice(@barcode,@branchRef)").ToString();
+                            row["Birim Fiyat"] = price;
+
+                            decimal total = decimal.Parse(row["Miktar"].ToString()) * decimal.Parse(price);
+                            row["Toplam Tutar"] = total;
                             grdGrid.DeleteRow(grdGrid.FocusedRowHandle);
                             dtBox.Rows.Add(row);
                             grdGrid.RefreshData();
@@ -432,9 +450,17 @@ namespace Erp.Buy
                         row["Renk"] = dtSearch.Rows[0]["Renk"].ToString();
                         row["Beden"] = dtSearch.Rows[0]["Beden"].ToString();
                         row["Barkod"] = barcode;
-                        row["Birim Ref"] = dtSearch.Rows[0]["Birim Ref"].ToString();
-                        row["Birim Kodu"] = dtSearch.Rows[0]["Birim Kodu"].ToString();
+                        row["Birim Kodu"] = "Adet";
                         row["Miktar"] = 1;
+
+                        db.AddParameterValue("@barcode", barcode);
+                        db.AddParameterValue("@branchRef", ledBranch.GetValue());
+                        string price = db.GetScalarValue("select  dbo.Tools_GetLastActiveBuyPrice(@barcode,@branchRef)").ToString();
+                        row["Birim Fiyat"] = price;
+
+                        decimal total = decimal.Parse(row["Miktar"].ToString()) * decimal.Parse(price);
+                        row["Toplam Tutar"] = total;
+
                         dtBox.Rows.Add(row);
                         grdGrid.RefreshData();
                     }

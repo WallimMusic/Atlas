@@ -72,7 +72,7 @@ namespace Erp.Tools
             {
                 db.AddParameterValue("@barcode", barcode);
                 db.AddParameterValue("@branchRef", branchRef);
-                dt = db.GetDataTable(@"SELECT * FROM Tools_GetSellPriceList(@branchRef,@barcode)");
+                dt = db.GetDataTable(@"SELECT * FROM Tools_GetBuyPriceList(@branchRef,@barcode)");
             }
             else if (type == "Sell Order")
             {

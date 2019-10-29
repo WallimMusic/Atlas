@@ -267,13 +267,14 @@ where plugType = 101", "Sayım Fişi", db);
                 }
             }
         }
+        #endregion
+
 
         private void bbiStockCardOpen_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             Stock.FrmStokCard card = new Stock.FrmStokCard();
             card.ShowDialog();
         }
-        #endregion
 
         #region Buy Tree List
 
@@ -290,6 +291,13 @@ where plugType = 101", "Sayım Fişi", db);
                     list.Show();
                 }
 
+                if (hi.Node[cololaylar].ToString() == "Hizmet Tanımları")
+                {
+                    Buy.FrmBuyServices services = new Buy.FrmBuyServices();
+                    services.MdiParent = this;
+                    services.Show();
+                }
+
                 else if (hi.Node[cololaylar].ToString() == "Satınalma Fiyat Listeleri")
                 {
                     Buy.FrmBuyList list = new Buy.FrmBuyList();
@@ -300,16 +308,26 @@ where plugType = 101", "Sayım Fişi", db);
                     ", "Alış Fiyatları", list);
                 }
 
-                else if (hi.Node[cololaylar].ToString() == "Satınalma Siparişi")
+                else if (hi.Node[cololaylar].ToString() == "Satınalma Talebi")
                 {
                     Buy.FrmBuyOrder order = new Buy.FrmBuyOrder();
-                    FormFill(@"SELECT        BO.Ref as Ref, BO.code AS [Sipariş Kodu], BO.name AS [Sipariş Adı], BO.Date AS [Sipariş Tarihi], BR.name as [Şube], WH.name as [Depo]
+                    FormFill(@"SELECT        BO.Ref as Ref, BO.code AS [Sipariş Kodu], BO.name AS [Sipariş Adı], BO.Date AS [Sipariş Tarihi], BO.totalPrice as [Toplam Tutar] ,BR.name as [Şube], WH.name as [Depo]
 FROM            StBuyOrder BO with(nolock) 
 INNER JOIN AtlasSys.dbo.sysBranch BR ON BR.Ref = BO.branchRef
 INNER JOIN AtlasSys.dbo.sysWhouse WH ON WH.Ref = BO.whouseRef
-WHERE        (BO.state = 1) ", "Satınalma Siparişleri", order);
+WHERE        (BO.state = 1) ", "Satınalma Talepleri", order);
                 }
-                else if (hi.Node[cololaylar].ToString() == "Toplu Alım Siparişi Kapatma")
+
+                else if (hi.Node[cololaylar].ToString() == "Hizmet Satınalma Talebi")
+                {
+                    Buy.FrmServiceOrder order = new Buy.FrmServiceOrder();
+                    FormFill(@"SELECT        BO.Ref as Ref, BO.code AS [Hizmet Kodu], BO.name AS [Hizmet Adı], BO.Date AS [Hizmet Tarihi],BO.totalPrice as [Toplam Tutar], BR.name as [Şube] 
+FROM            StBuyServiceOrder BO with(nolock) 
+INNER JOIN AtlasSys.dbo.sysBranch BR ON BR.Ref = BO.branchRef
+WHERE        (BO.state = 1) ", "Hizmet Satınalma Talepleri", order);
+                }
+
+                else if (hi.Node[cololaylar].ToString() == "Toplu Satınalma Talebi Kapatma")
                 {
                     Buy.FrmOrderList orderList = new Buy.FrmOrderList();
                     orderList.MdiParent = this;

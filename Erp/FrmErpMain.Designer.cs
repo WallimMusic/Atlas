@@ -320,35 +320,37 @@
             this.treeBuy.AppendNode(new object[] {
             "Satınalma Hedefleri"}, 0);
             this.treeBuy.AppendNode(new object[] {
+            "Hizmet Tanımları"}, 0);
+            this.treeBuy.AppendNode(new object[] {
             "İşlemler"}, -1, 1, 1, -1);
             this.treeBuy.AppendNode(new object[] {
-            "Talep Yönetimi"}, 4, 1, 1, -1);
+            "Talep Yönetimi"}, 5, 1, 1, -1);
             this.treeBuy.AppendNode(new object[] {
-            "Satınalma Talebi"}, 5, 1, 1, -1);
+            "Satınalma Talebi"}, 6, 1, 1, -1);
             this.treeBuy.AppendNode(new object[] {
-            "Hizmet Alım Talebi"}, 5, 1, 1, -1);
+            "Hizmet Satınalma Talebi"}, 6, 1, 1, -1);
             this.treeBuy.AppendNode(new object[] {
-            "Stok Nakil Talebi"}, 5, 1, 1, -1);
+            "Stok Nakil Talebi"}, 6, 1, 1, -1);
             this.treeBuy.AppendNode(new object[] {
-            "Alım Onayla"}, 5, 1, 1, -1);
+            "Alım Onayla"}, 6, 1, 1, -1);
             this.treeBuy.AppendNode(new object[] {
             "Servisler"}, -1, 2, 2, -1);
             this.treeBuy.AppendNode(new object[] {
-            "Toplu Satınalma Talebi Kapatma"}, 10, 2, 2, -1);
+            "Toplu Satınalma Talebi Kapatma"}, 11, 2, 2, -1);
             this.treeBuy.AppendNode(new object[] {
-            "Toplu Hizmet Alım Talebi Kapatma"}, 10, 2, 2, -1);
+            "Toplu Hizmet Alım Talebi Kapatma"}, 11, 2, 2, -1);
             this.treeBuy.AppendNode(new object[] {
-            "Toplu Stok Nakil Talebi Kapatma"}, 10, 2, 2, -1);
+            "Toplu Stok Nakil Talebi Kapatma"}, 11, 2, 2, -1);
             this.treeBuy.AppendNode(new object[] {
             "Raporlar"}, -1, 3, 3, -1);
             this.treeBuy.AppendNode(new object[] {
-            "Bekleyen Siparişler Raporu"}, 14, 3, 3, -1);
+            "Bekleyen Siparişler Raporu"}, 15, 3, 3, -1);
             this.treeBuy.AppendNode(new object[] {
-            "Bekleyen Hizmet Alım Raporu"}, 14, 3, 3, -1);
+            "Bekleyen Hizmet Alım Raporu"}, 15, 3, 3, -1);
             this.treeBuy.AppendNode(new object[] {
-            "Stok Nakil Raporları"}, 14, 3, 3, -1);
+            "Stok Nakil Raporları"}, 15, 3, 3, -1);
             this.treeBuy.AppendNode(new object[] {
-            "Onaylanmış Talepler"}, 14, 3, 3, -1);
+            "Onaylanmış Talepler"}, 15, 3, 3, -1);
             this.treeBuy.EndUnboundLoad();
             this.treeBuy.OptionsBehavior.AutoScrollOnSorting = false;
             this.treeBuy.OptionsView.AutoWidth = false;

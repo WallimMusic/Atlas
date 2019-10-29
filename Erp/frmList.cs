@@ -45,7 +45,7 @@ namespace Erp
 
         void Add()
         {
-            
+
             newForm._Ref = 0;
             newForm._FormMod = Enums.enmFormMod.Yeni;
             f.Viewchild(newForm);

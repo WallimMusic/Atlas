@@ -111,6 +111,14 @@ namespace Erp.Sell
 
             db.AddParameterValue("@ref", this._Ref);
             dgwBranch.DataSource = db.GetDataTable("select * from StSellDiscountBranch where [discountRef]=@ref ");
+
+            ledBranch.flaLookUp.Properties.ValueMember = "Key";
+            ledBranch.flaLookUp.Properties.DisplayMember = "Value";
+            ledBranch.flaLookUp.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo() { FieldName = "Key", Caption = "dbNo", Visible = false });
+            ledBranch.flaLookUp.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo() { FieldName = "Value", Caption = "Adı" });
+
+            ledBranch.flaLookUp.Properties.DataSource = main.lstBranch.ToList();
+
         }
 
         bool Control()
@@ -536,12 +544,25 @@ and barcode = @barcode");
             helper.GetCode("StSellDiscount", "code", this, txtCode, 5000);
         }
 
+        private void dgwGrid_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void riBtnStockCode_Click(object sender, EventArgs e)
         {
-            Stock.FrmBarcodeList list = new Stock.FrmBarcodeList();
-            list.gelen = "Discount";
-            list.ShowDialog();
 
+            if (!string.IsNullOrEmpty(ledBranch.GetString().ToString()))
+            {
+                Stock.FrmBarcodeList list = new Stock.FrmBarcodeList();
+                list.gelen = "Discount";
+                list.branchRef = ledBranch.GetValue();
+                list.ShowDialog();
+            }
+            else
+            {
+                XtraMessageBox.Show("indirimin uygulanacağı ana şube seçilmeden işleme devam edemezsiniz..", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
 
         }
 

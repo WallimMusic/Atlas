@@ -37,16 +37,19 @@
             // dgwGrid
             // 
             this.dgwGrid.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgwGrid.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgwGrid.Location = new System.Drawing.Point(0, 0);
             this.dgwGrid.MainView = this.grdGrid;
+            this.dgwGrid.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgwGrid.Name = "dgwGrid";
-            this.dgwGrid.Size = new System.Drawing.Size(514, 243);
+            this.dgwGrid.Size = new System.Drawing.Size(764, 345);
             this.dgwGrid.TabIndex = 0;
             this.dgwGrid.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grdGrid});
             // 
             // grdGrid
             // 
+            this.grdGrid.DetailHeight = 431;
             this.grdGrid.GridControl = this.dgwGrid;
             this.grdGrid.Name = "grdGrid";
             this.grdGrid.KeyDown += new System.Windows.Forms.KeyEventHandler(this.grdGrid_KeyDown);
@@ -54,10 +57,11 @@
             // 
             // FrmPriceList
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(514, 243);
+            this.ClientSize = new System.Drawing.Size(764, 345);
             this.Controls.Add(this.dgwGrid);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FrmPriceList";
             this.Text = "FrmPriceList";
             this.Load += new System.EventHandler(this.FrmPriceList_Load);

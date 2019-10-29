@@ -101,11 +101,23 @@
     <Compile Include="Buy\FrmBuyReturn.Designer.cs">
       <DependentUpon>FrmBuyReturn.cs</DependentUpon>
     </Compile>
+    <Compile Include="Buy\FrmBuyServices.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Buy\FrmBuyServices.Designer.cs">
+      <DependentUpon>FrmBuyServices.cs</DependentUpon>
+    </Compile>
     <Compile Include="Buy\FrmOrderList.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Buy\FrmOrderList.Designer.cs">
       <DependentUpon>FrmOrderList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Buy\FrmServiceOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Buy\FrmServiceOrder.Designer.cs">
+      <DependentUpon>FrmServiceOrder.cs</DependentUpon>
     </Compile>
     <Compile Include="ErpManager.cs" />
     <Compile Include="FrmErpMain.cs">
@@ -285,6 +297,12 @@
     <Compile Include="Tools\FrmPriceList.Designer.cs">
       <DependentUpon>FrmPriceList.cs</DependentUpon>
     </Compile>
+    <Compile Include="Tools\FrmServiceList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tools\FrmServiceList.Designer.cs">
+      <DependentUpon>FrmServiceList.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Buy\FrmBuyList.resx">
       <DependentUpon>FrmBuyList.cs</DependentUpon>
     </EmbeddedResource>
@@ -294,8 +312,14 @@
     <EmbeddedResource Include="Buy\FrmBuyReturn.resx">
       <DependentUpon>FrmBuyReturn.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Buy\FrmBuyServices.resx">
+      <DependentUpon>FrmBuyServices.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Buy\FrmOrderList.resx">
       <DependentUpon>FrmOrderList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Buy\FrmServiceOrder.resx">
+      <DependentUpon>FrmServiceOrder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmErpMain.resx">
       <DependentUpon>FrmErpMain.cs</DependentUpon>
@@ -393,6 +417,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Tools\FrmPriceList.resx">
       <DependentUpon>FrmPriceList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tools\FrmServiceList.resx">
+      <DependentUpon>FrmServiceList.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
