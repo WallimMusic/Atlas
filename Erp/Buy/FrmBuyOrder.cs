@@ -184,6 +184,10 @@ namespace Erp.Buy
             grdGrid.Columns[2].Visible = false;
             grdGrid.Columns[3].ColumnEdit = riBtnStockCode;
 
+
+
+            grdGrid.Columns["Birim Fiyat"].FieldName = "unitPrice";
+
             //grdGrid.Columns[8].ColumnEdit = riLedUnit;
             grdGrid.Columns[8].Visible = false;
             grdGrid.Columns[3].OptionsColumn.ReadOnly = false;
@@ -313,19 +317,22 @@ namespace Erp.Buy
         public void Calculate()
         {
             allTotal = 0; lineCount = 0; allQuantity = 0;
-
             for (int i = 0; i < grdGrid.RowCount - 1; i++)
             {
-                if (!string.IsNullOrEmpty(grdGrid.GetRowCellValue(i, "Miktar").ToString()))
+                if (!string.IsNullOrEmpty(grdGrid.GetRowCellValue(i, "Miktar").ToString()) && !string.IsNullOrEmpty(grdGrid.GetRowCellValue(i, "Birim Fiyat").ToString()))
                 {
+
+                    decimal convertedUnitPrice = 0;
                     string unitPrice = grdGrid.GetRowCellValue(i, "Birim Fiyat").ToString();
-                    unitPrice = unitPrice.Replace(",", ".");
+                    convertedUnitPrice = decimal.Parse(unitPrice);
+
+                    convertedUnitPrice = Math.Round(convertedUnitPrice, 2);
 
 
-                    grdGrid.SetFocusedRowCellValue("Birim Fiyat", unitPrice);
+                    decimal total = decimal.Parse(grdGrid.GetRowCellValue(i, "Miktar").ToString()) * convertedUnitPrice;
+                    total = Math.Round(total, 2);
+                    grdGrid.SetRowCellValue(i, "Toplam Tutar", String.Format(System.Globalization.CultureInfo.CurrentCulture, "{0:n}", total));
 
-                    decimal total = decimal.Parse(grdGrid.GetRowCellValue(i, "Miktar").ToString()) * decimal.Parse(unitPrice);
-                    grdGrid.SetRowCellValue(i, "Toplam Tutar", total);
 
 
                     allTotal += decimal.Parse(grdGrid.GetRowCellValue(i, "Toplam Tutar").ToString());
@@ -334,11 +341,11 @@ namespace Erp.Buy
 
                     lblCount.Text = lineCount.ToString();
                     lblquan.Text = allQuantity.ToString();
-                    lblTotal.Text = string.Format("{0:c}", double.Parse(allTotal.ToString()));
+                    lblTotal.Text = string.Format("{0:n}", double.Parse(allTotal.ToString()));
                 }
                 grdGrid.BestFitColumns();
-
             }
+
         }
 
         #endregion
@@ -364,7 +371,6 @@ namespace Erp.Buy
             {
                 Stock.FrmBarcodeList list = new Stock.FrmBarcodeList();
                 list.gelen = "Buy Order";
-
                 list.ShowDialog();
             }
         }

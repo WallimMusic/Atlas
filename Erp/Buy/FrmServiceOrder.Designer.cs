@@ -45,7 +45,7 @@
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.atlasLookUp1 = new Obje.Companents.AtlasLookUp();
+            this.ledCustomer = new Obje.Companents.AtlasLookUp();
             this.label1 = new System.Windows.Forms.Label();
             this.txtDesc = new Obje.Companents.AtlasTextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -57,14 +57,6 @@
             this.dtpPlugDate = new Obje.Companents.AtlasDateEdit();
             this.ledBranch = new Obje.Companents.AtlasLookUp();
             this.label4 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.dgwGrid = new DevExpress.XtraGrid.GridControl();
-            this.grdGrid = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.riLedDirection = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.riBtnStockCode = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
-            this.riLedUnit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.pmMenu = new DevExpress.XtraBars.PopupMenu(this.components);
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.lblTotal = new System.Windows.Forms.Label();
@@ -73,9 +65,18 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.dgwGrid = new DevExpress.XtraGrid.GridControl();
+            this.grdGrid = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.riLedDirection = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.riBtnStockCode = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.riLedUnit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pmMenu)).BeginInit();
+            this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgwGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.riLedDirection)).BeginInit();
@@ -83,8 +84,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.riLedUnit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pmMenu)).BeginInit();
-            this.groupBox3.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // ribbonControl1
@@ -106,7 +106,7 @@
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
-            this.ribbonControl1.Size = new System.Drawing.Size(1066, 156);
+            this.ribbonControl1.Size = new System.Drawing.Size(1338, 156);
             // 
             // btnSave
             // 
@@ -116,6 +116,7 @@
             this.btnSave.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnSave.ImageOptions.LargeImage")));
             this.btnSave.ItemShortcut = new DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.F2);
             this.btnSave.Name = "btnSave";
+            this.btnSave.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSave_ItemClick);
             // 
             // btnEscape
             // 
@@ -124,6 +125,7 @@
             this.btnEscape.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnEscape.ImageOptions.Image")));
             this.btnEscape.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnEscape.ImageOptions.LargeImage")));
             this.btnEscape.Name = "btnEscape";
+            this.btnEscape.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnEscape_ItemClick);
             // 
             // btnDeleteLine
             // 
@@ -179,7 +181,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.atlasLookUp1);
+            this.groupBox1.Controls.Add(this.ledCustomer);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txtDesc);
             this.groupBox1.Controls.Add(this.label7);
@@ -200,13 +202,13 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Genel Bilgiler";
             // 
-            // atlasLookUp1
+            // ledCustomer
             // 
-            this.atlasLookUp1.Location = new System.Drawing.Point(101, 85);
-            this.atlasLookUp1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.atlasLookUp1.Name = "atlasLookUp1";
-            this.atlasLookUp1.Size = new System.Drawing.Size(160, 25);
-            this.atlasLookUp1.TabIndex = 59;
+            this.ledCustomer.Location = new System.Drawing.Point(101, 85);
+            this.ledCustomer.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ledCustomer.Name = "ledCustomer";
+            this.ledCustomer.Size = new System.Drawing.Size(160, 25);
+            this.ledCustomer.TabIndex = 3;
             // 
             // label1
             // 
@@ -224,7 +226,7 @@
             this.txtDesc.Margin = new System.Windows.Forms.Padding(5);
             this.txtDesc.Name = "txtDesc";
             this.txtDesc.Size = new System.Drawing.Size(423, 25);
-            this.txtDesc.TabIndex = 7;
+            this.txtDesc.TabIndex = 6;
             // 
             // label7
             // 
@@ -311,99 +313,6 @@
             this.label4.TabIndex = 36;
             this.label4.Text = "Şube:";
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.Controls.Add(this.dgwGrid);
-            this.groupBox2.Location = new System.Drawing.Point(5, 219);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox2.Size = new System.Drawing.Size(1052, 466);
-            this.groupBox2.TabIndex = 44;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Satırlar";
-            // 
-            // dgwGrid
-            // 
-            this.dgwGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgwGrid.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.dgwGrid.Location = new System.Drawing.Point(3, 20);
-            this.dgwGrid.MainView = this.grdGrid;
-            this.dgwGrid.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.dgwGrid.Name = "dgwGrid";
-            this.dgwGrid.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.riLedDirection,
-            this.riBtnStockCode,
-            this.riLedUnit});
-            this.dgwGrid.Size = new System.Drawing.Size(1046, 442);
-            this.dgwGrid.TabIndex = 17;
-            this.dgwGrid.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.grdGrid,
-            this.gridView2,
-            this.gridView1});
-            // 
-            // grdGrid
-            // 
-            this.grdGrid.DetailHeight = 431;
-            this.grdGrid.GridControl = this.dgwGrid;
-            this.grdGrid.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Toplam Tutar", null, "", "")});
-            this.grdGrid.Name = "grdGrid";
-            this.grdGrid.OptionsView.ShowGroupPanel = false;
-            this.grdGrid.PopupMenuShowing += new DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventHandler(this.grdGrid_PopupMenuShowing);
-            this.grdGrid.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.grdGrid_FocusedRowChanged);
-            this.grdGrid.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.grdGrid_CellValueChanged);
-            // 
-            // riLedDirection
-            // 
-            this.riLedDirection.AutoHeight = false;
-            this.riLedDirection.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.riLedDirection.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Key", "Ref", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Value", "Yön")});
-            this.riLedDirection.DisplayMember = "Value";
-            this.riLedDirection.Name = "riLedDirection";
-            this.riLedDirection.NullText = "Seçim Yapınız..";
-            this.riLedDirection.ShowFooter = false;
-            this.riLedDirection.ValueMember = "Key";
-            // 
-            // riBtnStockCode
-            // 
-            this.riBtnStockCode.AutoHeight = false;
-            this.riBtnStockCode.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F6), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
-            this.riBtnStockCode.Name = "riBtnStockCode";
-            // 
-            // riLedUnit
-            // 
-            this.riLedUnit.AutoHeight = false;
-            this.riLedUnit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.riLedUnit.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ref", "Ref", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("unitName", "Birim")});
-            this.riLedUnit.DisplayMember = "unitName";
-            this.riLedUnit.Name = "riLedUnit";
-            this.riLedUnit.NullText = "Seçim Yapınız..";
-            this.riLedUnit.ShowFooter = false;
-            this.riLedUnit.ValueMember = "Ref";
-            // 
-            // gridView2
-            // 
-            this.gridView2.DetailHeight = 431;
-            this.gridView2.GridControl = this.dgwGrid;
-            this.gridView2.Name = "gridView2";
-            // 
-            // gridView1
-            // 
-            this.gridView1.DetailHeight = 431;
-            this.gridView1.GridControl = this.dgwGrid;
-            this.gridView1.Name = "gridView1";
-            // 
             // pmMenu
             // 
             this.pmMenu.ItemLinks.Add(this.btnDeleteLine);
@@ -487,22 +396,117 @@
             this.label8.TabIndex = 37;
             this.label8.Text = "Kalem Sayısı:";
             // 
+            // dgwGrid
+            // 
+            this.dgwGrid.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgwGrid.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dgwGrid.Location = new System.Drawing.Point(3, 20);
+            this.dgwGrid.MainView = this.grdGrid;
+            this.dgwGrid.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dgwGrid.Name = "dgwGrid";
+            this.dgwGrid.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.riLedDirection,
+            this.riBtnStockCode,
+            this.riLedUnit});
+            this.dgwGrid.Size = new System.Drawing.Size(1318, 509);
+            this.dgwGrid.TabIndex = 7;
+            this.dgwGrid.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.grdGrid,
+            this.gridView2,
+            this.gridView1});
+            // 
+            // grdGrid
+            // 
+            this.grdGrid.DetailHeight = 431;
+            this.grdGrid.GridControl = this.dgwGrid;
+            this.grdGrid.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Toplam Tutar", null, "", "")});
+            this.grdGrid.Name = "grdGrid";
+            this.grdGrid.OptionsView.ShowGroupPanel = false;
+            this.grdGrid.PopupMenuShowing += new DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventHandler(this.grdGrid_PopupMenuShowing);
+            this.grdGrid.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.grdGrid_FocusedRowChanged);
+            this.grdGrid.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.grdGrid_CellValueChanged);
+            // 
+            // riLedDirection
+            // 
+            this.riLedDirection.AutoHeight = false;
+            this.riLedDirection.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.riLedDirection.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Key", "Ref", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Value", "Yön")});
+            this.riLedDirection.DisplayMember = "Value";
+            this.riLedDirection.Name = "riLedDirection";
+            this.riLedDirection.NullText = "Seçim Yapınız..";
+            this.riLedDirection.ShowFooter = false;
+            this.riLedDirection.ValueMember = "Key";
+            // 
+            // riBtnStockCode
+            // 
+            this.riBtnStockCode.AutoHeight = false;
+            this.riBtnStockCode.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F6), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.riBtnStockCode.Name = "riBtnStockCode";
+            // 
+            // riLedUnit
+            // 
+            this.riLedUnit.AutoHeight = false;
+            this.riLedUnit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.riLedUnit.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ref", "Ref", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("unitName", "Birim")});
+            this.riLedUnit.DisplayMember = "unitName";
+            this.riLedUnit.Name = "riLedUnit";
+            this.riLedUnit.NullText = "Seçim Yapınız..";
+            this.riLedUnit.ShowFooter = false;
+            this.riLedUnit.ValueMember = "Ref";
+            // 
+            // gridView2
+            // 
+            this.gridView2.DetailHeight = 431;
+            this.gridView2.GridControl = this.dgwGrid;
+            this.gridView2.Name = "gridView2";
+            // 
+            // gridView1
+            // 
+            this.gridView1.DetailHeight = 431;
+            this.gridView1.GridControl = this.dgwGrid;
+            this.gridView1.Name = "gridView1";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Controls.Add(this.dgwGrid);
+            this.groupBox2.Location = new System.Drawing.Point(5, 219);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox2.Size = new System.Drawing.Size(1324, 533);
+            this.groupBox2.TabIndex = 44;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Satırlar";
+            // 
             // FrmServiceOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1066, 698);
+            this.ClientSize = new System.Drawing.Size(1338, 765);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.ribbonControl1);
             this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.ribbonControl1);
             this.Name = "FrmServiceOrder";
             this.Text = "Hizmet Satınalma Talebi";
             this.Load += new System.EventHandler(this.FrmServiceOrder_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pmMenu)).EndInit();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgwGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.riLedDirection)).EndInit();
@@ -510,9 +514,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.riLedUnit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pmMenu)).EndInit();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -540,16 +542,8 @@
         private Obje.Companents.AtlasDateEdit dtpPlugDate;
         public Obje.Companents.AtlasLookUp ledBranch;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.GroupBox groupBox2;
-        public DevExpress.XtraGrid.GridControl dgwGrid;
-        public DevExpress.XtraGrid.Views.Grid.GridView grdGrid;
-        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit riLedDirection;
-        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit riBtnStockCode;
-        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit riLedUnit;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraBars.PopupMenu pmMenu;
-        public Obje.Companents.AtlasLookUp atlasLookUp1;
+        public Obje.Companents.AtlasLookUp ledCustomer;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label lblTotal;
@@ -558,5 +552,13 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
+        public DevExpress.XtraGrid.GridControl dgwGrid;
+        public DevExpress.XtraGrid.Views.Grid.GridView grdGrid;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit riLedDirection;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit riBtnStockCode;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit riLedUnit;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private System.Windows.Forms.GroupBox groupBox2;
     }
 }

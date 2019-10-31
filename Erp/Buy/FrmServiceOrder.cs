@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using Obje.Classes;
 using DevExpress.XtraEditors.Repository;
+using DevExpress.XtraGrid.Columns;
+using DevExpress.Utils;
 
 namespace Erp.Buy
 {
@@ -50,9 +52,23 @@ namespace Erp.Buy
         DialogResult result;
 
 
-        public void Calculate()
+        void setUnitPrice()
         {
-            grdGrid.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.None;
+            for (int a = 0; a < grdGrid.RowCount - 1; a++)
+            {
+                decimal convertedUnitPrice = 0;
+                string unitPrice = grdGrid.GetRowCellValue(a, "Birim Fiyat").ToString();
+                convertedUnitPrice = decimal.Parse(unitPrice);
+
+                convertedUnitPrice = Math.Round(convertedUnitPrice, 2);
+                grdGrid.SetRowCellValue(a, "unitPrice", String.Format(System.Globalization.CultureInfo.CurrentCulture, "{0:n}", convertedUnitPrice));
+                Calculate();
+            }
+
+        }
+
+        void Calculate()
+        {
             allTotal = 0; lineCount = 0; allQuantity = 0;
 
             for (int i = 0; i < grdGrid.RowCount - 1; i++)
@@ -60,14 +76,14 @@ namespace Erp.Buy
                 if (!string.IsNullOrEmpty(grdGrid.GetRowCellValue(i, "Miktar").ToString()) && !string.IsNullOrEmpty(grdGrid.GetRowCellValue(i, "Birim Fiyat").ToString()))
                 {
 
-                    decimal unitPrice = decimal.Parse(grdGrid.GetRowCellValue(i, "Birim Fiyat").ToString());
-                    unitPrice = decimal.Parse(unitPrice.ToString().Replace(",", "."));
-                    unitPrice = Math.Round(unitPrice, 2);
-                    grdGrid.SetRowCellValue(i, "Birim Fiyat", unitPrice.ToString());
+                    decimal convertedUnitPrice = 0;
+                    convertedUnitPrice = decimal.Parse(grdGrid.GetRowCellValue(i, "Birim Fiyat").ToString());
 
-                    decimal total = decimal.Parse(grdGrid.GetRowCellValue(i, "Miktar").ToString()) * unitPrice;
+
+                    decimal total = decimal.Parse(grdGrid.GetRowCellValue(i, "Miktar").ToString()) * convertedUnitPrice;
                     total = Math.Round(total, 2);
-                    grdGrid.SetRowCellValue(i, "Toplam Tutar", total);
+                    grdGrid.SetRowCellValue(i, "Toplam Tutar", String.Format(System.Globalization.CultureInfo.CurrentCulture, "{0:n}", total));
+
 
 
                     allTotal += decimal.Parse(grdGrid.GetRowCellValue(i, "Toplam Tutar").ToString());
@@ -76,55 +92,134 @@ namespace Erp.Buy
 
                     lblCount.Text = lineCount.ToString();
                     lblquan.Text = allQuantity.ToString();
-                    lblTotal.Text = string.Format("{0:c}", double.Parse(allTotal.ToString()));
+                    lblTotal.Text = string.Format("{0:n}", double.Parse(allTotal.ToString()));
                 }
                 grdGrid.BestFitColumns();
-
             }
 
-            grdGrid.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
+
+
+
+
         }
+
+        bool Control()
+        {
+            stb.Clear();
+
+            if (string.IsNullOrEmpty(ledBranch.GetValue().ToString()))
+                stb.AppendLine("Şube boş geçilemez.");
+            else
+                branch = ledBranch.GetValue();
+            if (string.IsNullOrEmpty(txtCode.GetString()))
+                stb.AppendLine("Kod boş geçilemez.");
+            if (string.IsNullOrEmpty(txtName.GetString()))
+                stb.AppendLine("ad boş geçilemez.");
+
+            if (stb.ToString().Length <= 0)
+                return true;
+            else return false;
+        }
+
+        void Save()
+        {
+            if (Control())
+            {
+                db.AddParameterValue("@ref", this._Ref);
+                db.AddParameterValue("@code", txtCode.GetString());
+                db.AddParameterValue("@name", txtName.GetString());
+                db.AddParameterValue("@customerRef", ledCustomer.GetValue());
+                db.AddParameterValue("@date", dtpPlugDate.GetDate().ToShortDateString(), SqlDbType.Date);
+                db.AddParameterValue("@branch", branch);
+                db.AddParameterValue("@desc", txtDesc.GetString());
+                db.AddParameterValue("@state", true);
+                db.AddParameterValue("@totalPrice", allTotal, SqlDbType.Decimal);
+                db.RunCommand("sp_BuyServiceOrder", CommandType.StoredProcedure);
+                db.parameterDelete();
+
+
+
+
+                if (this._FormMod == Enums.enmFormMod.Yeni)
+                    this._Ref = int.Parse(db.GetScalarValue("select MAX(Ref) from StBuyServiceOrder").ToString());
+
+
+                grdGrid.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.None;
+                grdGrid.OptionsView.ShowAutoFilterRow = false;
+
+                for (int i = 0; i < grdGrid.RowCount; i++)
+                {
+
+                    if (string.IsNullOrEmpty(grdGrid.GetRowCellValue(i, "Ref").ToString()))
+                        REf = 0;
+                    else
+                        REf = int.Parse(grdGrid.GetRowCellValue(i, "Ref").ToString());
+
+
+                    int serviceRef = int.Parse(grdGrid.GetRowCellValue(i, "Hizmet Ref").ToString());
+                    string serviceCode = grdGrid.GetRowCellValue(i, "Hizmet Kodu").ToString();
+                    int quantity = int.Parse(grdGrid.GetRowCellValue(i, "Miktar").ToString());
+                    string lineDesc = grdGrid.GetRowCellValue(i, "Satır Açıklaması").ToString();
+                    decimal unitPrice = decimal.Parse(grdGrid.GetRowCellValue(i, "Birim Fiyat").ToString());
+                    decimal linePrice = decimal.Parse(grdGrid.GetRowCellValue(i, "Toplam Tutar").ToString());
+
+                    db.AddParameterValue("@ref", REf);
+                    db.AddParameterValue("@orderRef", this._Ref);
+                    db.AddParameterValue("@serviceRef", serviceRef);
+                    db.AddParameterValue("@serviceCode", serviceCode);
+                    db.AddParameterValue("@quantity", quantity);
+                    db.AddParameterValue("@unitPrice", unitPrice, SqlDbType.Decimal);
+                    db.AddParameterValue("@linePrice", linePrice, SqlDbType.Decimal);
+                    db.AddParameterValue("@direc", direc);
+                    db.AddParameterValue("@desc", lineDesc);
+                    db.RunCommand("sp_BuyServiceOrderDetails", CommandType.StoredProcedure);
+
+                }
+                XtraMessageBox.Show("İşlem başarılı bir şekilde kaydedildi.", "Başarılı işlem!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                ok = true;
+
+            }
+            else
+            {
+                FrmErrorForm form = new FrmErrorForm();
+                form.flashMemoEdit1.SetString(stb.ToString());
+                form.ShowDialog();
+            }
+        }
+
         void FillData()
         {
 
             db.AddParameterValue("@ref", this._Ref);
-            DataTable dtPlug = db.GetDataTable("select * from StBuyOrder where Ref=@ref");
+            DataTable dtPlug = db.GetDataTable("select * from StBuyServiceOrder where Ref=@ref");
             if (!string.IsNullOrEmpty(dtPlug.Rows[0][1].ToString()))
             {
 
 
-                txtCode.SetString(dtPlug.Rows[0][1].ToString());
-                txtName.SetString(dtPlug.Rows[0][2].ToString());
-                dtpPlugDate.SetDate(DateTime.Parse(dtPlug.Rows[0][3].ToString()));
-                ledBranch.SetValue(int.Parse(dtPlug.Rows[0][4].ToString()));
-                txtDesc.SetString(dtPlug.Rows[0][6].ToString());
+                txtCode.SetString(dtPlug.Rows[0]["code"].ToString());
+                txtName.SetString(dtPlug.Rows[0]["name"].ToString());
+                dtpPlugDate.SetDate(DateTime.Parse(dtPlug.Rows[0]["Date"].ToString()));
+                ledBranch.SetValue(int.Parse(dtPlug.Rows[0]["branchRef"].ToString()));
+                txtDesc.SetString(dtPlug.Rows[0]["Desc"].ToString());
+                ledCustomer.SetValue(int.Parse(dtPlug.Rows[0]["customerRef"].ToString()));
 
                 db.AddParameterValue("@ref", this._Ref);
-                DataTable dtPlugDetails = db.GetDataTable("select * from StBuyOrderDetails where orderRef=@ref");
+                DataTable dtPlugDetails = db.GetDataTable("select * from StBuyServiceOrderDetails where orderRef=@ref");
                 for (int i = 0; i < dtPlugDetails.Rows.Count; i++)
                 {
                     DataRow row = dtBox.NewRow();
                     row["Ref"] = dtPlugDetails.Rows[i]["Ref"];
                     row["Fiş Ref"] = dtPlugDetails.Rows[i]["orderRef"];
-                    row["Kart Ref"] = dtPlugDetails.Rows[i]["cardRef"];
-                    row["Kart Kodu"] = dtPlugDetails.Rows[i]["cardCode"];
+                    row["Hizmet Ref"] = dtPlugDetails.Rows[i]["serviceRef"];
+                    row["Hizmet Kodu"] = dtPlugDetails.Rows[i]["serviceCode"];
                     db.parameterDelete();
 
-                    db.AddParameterValue("@ref", dtPlugDetails.Rows[i]["cardRef"], SqlDbType.Int);
-                    row["Kart Adı"] = db.GetScalarValue("select name from StStockCard where ref=@ref").ToString();
-                    db.parameterDelete();
-                    row["Barkod"] = dtPlugDetails.Rows[i]["barcode"];
-
-                    db.AddParameterValue("@barcode", dtPlugDetails.Rows[i]["barcode"]);
-                    row["Renk"] = db.GetScalarValue("select color from StStockCardBarcodes where barcode=@barcode");
-                    db.AddParameterValue("@barcode", dtPlugDetails.Rows[i]["barcode"]);
-                    row["Beden"] = db.GetScalarValue("select size from StStockCardBarcodes where barcode=@barcode");
+                    db.AddParameterValue("@ref", dtPlugDetails.Rows[i]["serviceCode"], SqlDbType.Int);
+                    row["Hizmet Adı"] = db.GetScalarValue("select name from StBuyServices where ref=@ref").ToString();
                     db.parameterDelete();
 
-                    row["Birim Ref"] = dtPlugDetails.Rows[i]["unitRef"];
-                    sysDb.AddParameterValue("@ref", dtPlugDetails.Rows[i]["unitRef"], SqlDbType.Int);
-                    row["Birim Kodu"] = sysDb.GetScalarValue("select symbol from sysUnit where Ref=@ref").ToString();
-                    sysDb.parameterDelete();
+
                     row["Miktar"] = dtPlugDetails.Rows[i]["quantity"];
                     row["Birim Fiyat"] = dtPlugDetails.Rows[i]["unitPrice"];
                     row["Toplam Tutar"] = dtPlugDetails.Rows[i]["linePrice"];
@@ -160,12 +255,19 @@ namespace Erp.Buy
             dgwGrid.DataSource = null;
 
 
+
             ledBranch.flaLookUp.Properties.ValueMember = "Key";
             ledBranch.flaLookUp.Properties.DisplayMember = "Value";
             ledBranch.flaLookUp.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo() { FieldName = "Key", Caption = "dbNo", Visible = false });
             ledBranch.flaLookUp.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo() { FieldName = "Value", Caption = "Adı" });
 
             ledBranch.flaLookUp.Properties.DataSource = main.lstBranch.ToList();
+
+            ledCustomer.flaLookUp.Properties.ValueMember = "Ref";
+            ledCustomer.flaLookUp.Properties.DisplayMember = "name";
+            ledCustomer.flaLookUp.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo() { FieldName = "Ref", Caption = "dbNo", Visible = false });
+            ledCustomer.flaLookUp.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo() { FieldName = "name", Caption = "Adı" });
+            ledCustomer.flaLookUp.Properties.DataSource = db.GetDataTable("select * from StCustomerAccount where active=1 and type = 201 or type = 202");
 
 
             RepositoryItemButtonEdit riServiceCode;
@@ -180,9 +282,14 @@ namespace Erp.Buy
 
 
 
+            grdGrid.Columns["Birim Fiyat"].FieldName = "unitPrice";
+
             grdGrid.Columns[0].Visible = false;
             grdGrid.Columns[1].Visible = false;
             grdGrid.Columns[2].Visible = false;
+
+            grdGrid.Columns[7].OptionsColumn.AllowEdit = false;
+            grdGrid.Columns[4].OptionsColumn.AllowEdit = false;
 
             grdGrid.Columns[3].ColumnEdit = riBtnStockCode;
 
@@ -213,14 +320,16 @@ namespace Erp.Buy
             }
         }
 
+        #endregion
+
         private void grdGrid_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
         {
-            if (e.Column.ToString() == "Miktar" || e.Column.ToString() == "Birim Fiyat")
-            {
 
+            if (e.Column.ToString() == "Miktar")
                 Calculate();
+            if (e.Column.ToString() == "Birim Fiyat")
+                setUnitPrice();
 
-            }
 
             if (e.Column.ToString() == "Hizmet Kodu")
             {
@@ -232,11 +341,11 @@ namespace Erp.Buy
                     grdGrid.SetFocusedRowCellValue("Hizmet Ref", dtSearch.Rows[0]["Ref"].ToString());
                     grdGrid.SetFocusedRowCellValue("Hizmet Adı", dtSearch.Rows[0]["name"].ToString());
                     grdGrid.SetFocusedRowCellValue("Miktar", 1);
-                    grdGrid.SetFocusedRowCellValue("Birim Fiyat", "1.00");
+                    grdGrid.SetFocusedRowCellValue("unitPrice", "1.00");
                     grdGrid.SetFocusedRowCellValue("Toplam Tutar", "1.00");
-
-
                 }
+                else
+                    grdGrid.DeleteRow(grdGrid.FocusedRowHandle);
             }
         }
 
@@ -269,6 +378,16 @@ namespace Erp.Buy
             }
         }
 
+        private void btnSave_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Save();
+        }
+
+        private void btnEscape_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            this.Close();
+        }
+
         private void grdGrid_PopupMenuShowing(object sender, DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventArgs e)
         {
             pmMenu.ShowPopup(Cursor.Position);
@@ -279,94 +398,6 @@ namespace Erp.Buy
             Calculate();
         }
 
-        bool Control()
-        {
-            stb.Clear();
-
-            if (string.IsNullOrEmpty(ledBranch.GetValue().ToString()))
-                stb.AppendLine("Şube boş geçilemez.");
-            else
-                branch = ledBranch.GetValue();
-
-
-            if (stb.ToString().Length <= 0)
-                return true;
-            else return false;
-        }
-
-        void Save()
-        {
-            if (Control())
-            {
-                db.AddParameterValue("@ref", this._Ref);
-                db.AddParameterValue("@code", txtCode.GetString());
-                db.AddParameterValue("@name", txtName.GetString());
-                db.AddParameterValue("@date", dtpPlugDate.GetDate().ToShortDateString(), SqlDbType.Date);
-                db.AddParameterValue("@branch", branch);
-                db.AddParameterValue("@whouse", wHouse);
-                db.AddParameterValue("@desc", txtDesc.GetString());
-                db.AddParameterValue("@state", true);
-                db.AddParameterValue("@totalPrice", allTotal, SqlDbType.Decimal);
-                db.RunCommand("sp_BuyOrder", CommandType.StoredProcedure);
-                db.parameterDelete();
-
-
-
-
-                if (this._FormMod == Enums.enmFormMod.Yeni)
-                    this._Ref = int.Parse(db.GetScalarValue("select MAX(Ref) from StBuyOrder").ToString());
-
-
-                grdGrid.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.None;
-                grdGrid.OptionsView.ShowAutoFilterRow = false;
-
-                for (int i = 0; i < grdGrid.RowCount; i++)
-                {
-
-                    if (string.IsNullOrEmpty(grdGrid.GetRowCellValue(i, "Ref").ToString()))
-                        REf = 0;
-                    else
-                        REf = int.Parse(grdGrid.GetRowCellValue(i, "Ref").ToString());
-
-
-                    int cardRef = int.Parse(grdGrid.GetRowCellValue(i, "Kart Ref").ToString());
-                    string cardCode = grdGrid.GetRowCellValue(i, "Kart Kodu").ToString();
-                    string barcode = grdGrid.GetRowCellValue(i, "Barkod").ToString();
-                    int unitRef = int.Parse(grdGrid.GetRowCellValue(i, "Birim Ref").ToString());
-                    int quantity = int.Parse(grdGrid.GetRowCellValue(i, "Miktar").ToString());
-                    string lineDesc = grdGrid.GetRowCellValue(i, "Satır Açıklaması").ToString();
-                    decimal unitPrice = decimal.Parse(grdGrid.GetRowCellValue(i, "Birim Fiyat").ToString());
-                    decimal linePrice = decimal.Parse(grdGrid.GetRowCellValue(i, "Toplam Tutar").ToString());
-
-                    db.AddParameterValue("@ref", REf);
-                    db.AddParameterValue("@orderRef", this._Ref);
-                    db.AddParameterValue("@cardRef", cardRef);
-                    db.AddParameterValue("@cardCode", cardCode);
-                    db.AddParameterValue("@barcode", barcode);
-                    db.AddParameterValue("@unitRef", unitRef);
-                    db.AddParameterValue("@quantity", quantity);
-                    db.AddParameterValue("@unitPrice", unitPrice, SqlDbType.Decimal);
-                    db.AddParameterValue("@linePrice", linePrice, SqlDbType.Decimal);
-                    db.AddParameterValue("@direc", direc);
-                    db.AddParameterValue("@desc", lineDesc);
-                    db.RunCommand("sp_BuyOrderDetails", CommandType.StoredProcedure);
-
-                }
-                XtraMessageBox.Show("İşlem başarılı bir şekilde kaydedildi.", "Başarılı işlem!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                ok = true;
-
-            }
-            else
-            {
-                FrmErrorForm form = new FrmErrorForm();
-                form.flashMemoEdit1.SetString(stb.ToString());
-                form.ShowDialog();
-            }
-        }
-
-        #endregion
-
         private void FrmServiceOrder_Load(object sender, EventArgs e)
         {
             SetForm();
@@ -374,11 +405,8 @@ namespace Erp.Buy
                 FillData();
 
             FillGrid();
-
             c.StateStabil(this);
         }
-
-
 
         private void riBtnStockCode_Click(object sender, EventArgs e)
         {

@@ -30,13 +30,13 @@
             this.flashMemo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flashMemo.Location = new System.Drawing.Point(0, 0);
             this.flashMemo.Name = "flashMemo";
-            this.flashMemo.Properties.Appearance.BackColor = System.Drawing.Color.Bisque;
+            this.flashMemo.Properties.Appearance.BackColor = System.Drawing.Color.LightBlue;
             this.flashMemo.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
             this.flashMemo.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
             this.flashMemo.Properties.Appearance.Options.UseBackColor = true;
             this.flashMemo.Properties.Appearance.Options.UseFont = true;
             this.flashMemo.Properties.Appearance.Options.UseForeColor = true;
-            this.flashMemo.Properties.AppearanceFocused.BackColor = System.Drawing.Color.PaleGreen;
+            this.flashMemo.Properties.AppearanceFocused.BackColor = System.Drawing.Color.Orange;
             this.flashMemo.Properties.AppearanceFocused.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.flashMemo.Properties.AppearanceFocused.ForeColor = System.Drawing.Color.Black;
             this.flashMemo.Properties.AppearanceFocused.Options.UseBackColor = true;

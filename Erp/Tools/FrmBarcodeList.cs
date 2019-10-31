@@ -92,50 +92,66 @@ namespace Erp.Stock
             try
             {
                 if (e.KeyCode == Keys.Space)
-            {
-                if (gridView1.GetFocusedRowCellValue("Seçim").ToString() == "True")
-                    gridView1.SetFocusedRowCellValue("Seçim", false);
-                else
-                    gridView1.SetFocusedRowCellValue("Seçim", true);
-            }
-            else if (e.KeyCode == Keys.Enter)
-            {
-                string barcode = "";
-                string oldBarcode, state = "";
-                int miktar;
-                int LastListRef;
-                DataRow row;
-                gridView1.Columns[2].UnGroup();
-
-                #region Plug
-                if (gelen == "Plug")
                 {
-                    FrmOperation form = (FrmOperation)Application.OpenForms["FrmOperation"];
-                    for (int i = 0; i < gridView1.RowCount; i++)
-                    {
-                        if (gridView1.GetRowCellValue(i, "Seçim").ToString() == "True")
-                        {
-                            if (form.grdGrid.RowCount - 1 > 0)
-                            {
-                                for (int a = 0; a < form.grdGrid.RowCount - 1; a++)
-                                {
-                                    barcode = gridView1.GetRowCellValue(i, "Barkod").ToString();
-                                    oldBarcode = form.grdGrid.GetRowCellValue(a, "Barkod").ToString();
-                                    if (barcode == oldBarcode)
-                                    {
-                                        miktar = int.Parse(form.grdGrid.GetRowCellValue(a, "Miktar").ToString());
-                                        miktar++;
-                                        form.grdGrid.SetRowCellValue(a, "Miktar", miktar);
-                                        state = "true";
-                                        break;
-                                    }
-                                    else
-                                    {
-                                        state = "false";
-                                    }
+                    if (gridView1.GetFocusedRowCellValue("Seçim").ToString() == "True")
+                        gridView1.SetFocusedRowCellValue("Seçim", false);
+                    else
+                        gridView1.SetFocusedRowCellValue("Seçim", true);
+                }
+                else if (e.KeyCode == Keys.Enter)
+                {
+                    string barcode = "";
+                    string oldBarcode, state = "";
+                    int miktar;
+                    int LastListRef;
+                    DataRow row;
+                    gridView1.Columns[2].UnGroup();
 
+                    #region Plug
+                    if (gelen == "Plug")
+                    {
+                        FrmOperation form = (FrmOperation)Application.OpenForms["FrmOperation"];
+                        for (int i = 0; i < gridView1.RowCount; i++)
+                        {
+                            if (gridView1.GetRowCellValue(i, "Seçim").ToString() == "True")
+                            {
+                                if (form.grdGrid.RowCount - 1 > 0)
+                                {
+                                    for (int a = 0; a < form.grdGrid.RowCount - 1; a++)
+                                    {
+                                        barcode = gridView1.GetRowCellValue(i, "Barkod").ToString();
+                                        oldBarcode = form.grdGrid.GetRowCellValue(a, "Barkod").ToString();
+                                        if (barcode == oldBarcode)
+                                        {
+                                            miktar = int.Parse(form.grdGrid.GetRowCellValue(a, "Miktar").ToString());
+                                            miktar++;
+                                            form.grdGrid.SetRowCellValue(a, "Miktar", miktar);
+                                            state = "true";
+                                            break;
+                                        }
+                                        else
+                                        {
+                                            state = "false";
+                                        }
+
+                                    }
+                                    if (state == "false")
+                                    {
+                                        row = form.dtBox.NewRow();
+                                        row["Kart Ref"] = int.Parse(gridView1.GetRowCellValue(i, "Ref").ToString());
+                                        row["Kart Kodu"] = gridView1.GetRowCellValue(i, "Kart Kodu").ToString();
+                                        row["Kart Adı"] = gridView1.GetRowCellValue(i, "Kart Adı").ToString();
+                                        row["Renk"] = gridView1.GetRowCellValue(i, "Renk").ToString();
+                                        row["Beden"] = gridView1.GetRowCellValue(i, "Beden").ToString();
+                                        row["Barkod"] = gridView1.GetRowCellValue(i, "Barkod").ToString();
+                                        row["Birim Ref"] = gridView1.GetRowCellValue(i, "Birim Ref").ToString();
+                                        row["Birim Kodu"] = gridView1.GetRowCellValue(i, "Birim Kodu").ToString();
+                                        row["Miktar"] = 1;
+                                        form.dtBox.Rows.Add(row);
+
+                                    }
                                 }
-                                if (state == "false")
+                                else
                                 {
                                     row = form.dtBox.NewRow();
                                     row["Kart Ref"] = int.Parse(gridView1.GetRowCellValue(i, "Ref").ToString());
@@ -148,52 +164,51 @@ namespace Erp.Stock
                                     row["Birim Kodu"] = gridView1.GetRowCellValue(i, "Birim Kodu").ToString();
                                     row["Miktar"] = 1;
                                     form.dtBox.Rows.Add(row);
-
                                 }
-                            }
-                            else
-                            {
-                                row = form.dtBox.NewRow();
-                                row["Kart Ref"] = int.Parse(gridView1.GetRowCellValue(i, "Ref").ToString());
-                                row["Kart Kodu"] = gridView1.GetRowCellValue(i, "Kart Kodu").ToString();
-                                row["Kart Adı"] = gridView1.GetRowCellValue(i, "Kart Adı").ToString();
-                                row["Renk"] = gridView1.GetRowCellValue(i, "Renk").ToString();
-                                row["Beden"] = gridView1.GetRowCellValue(i, "Beden").ToString();
-                                row["Barkod"] = gridView1.GetRowCellValue(i, "Barkod").ToString();
-                                row["Birim Ref"] = gridView1.GetRowCellValue(i, "Birim Ref").ToString();
-                                row["Birim Kodu"] = gridView1.GetRowCellValue(i, "Birim Kodu").ToString();
-                                row["Miktar"] = 1;
-                                form.dtBox.Rows.Add(row);
                             }
                         }
                     }
-                }
-                #endregion
+                    #endregion
 
-                #region Sell List
-                else if (gelen == "List")
-                {
-                    Sell.FrmSellPrices form = (Sell.FrmSellPrices)Application.OpenForms["FrmSellPrices"];
-                    for (int i = 0; i < gridView1.RowCount; i++)
+                    #region Sell List
+                    else if (gelen == "List")
                     {
-                        if (gridView1.GetRowCellValue(i, "Seçim").ToString() == "True")
+                        Sell.FrmSellPrices form = (Sell.FrmSellPrices)Application.OpenForms["FrmSellPrices"];
+                        for (int i = 0; i < gridView1.RowCount; i++)
                         {
-                            if (form.grdGrid.RowCount - 1 > 0)
+                            if (gridView1.GetRowCellValue(i, "Seçim").ToString() == "True")
                             {
-                                for (int a = 0; a < form.grdGrid.RowCount - 1; a++)
+                                if (form.grdGrid.RowCount - 1 > 0)
                                 {
-                                    barcode = gridView1.GetRowCellValue(i, "Barkod").ToString();
-                                    oldBarcode = form.grdGrid.GetRowCellValue(a, "Barkod").ToString();
-                                    if (barcode == oldBarcode)
+                                    for (int a = 0; a < form.grdGrid.RowCount - 1; a++)
                                     {
-                                        state = "true";
-                                        break;
-                                    }
-                                    else
-                                        state = "false";
+                                        barcode = gridView1.GetRowCellValue(i, "Barkod").ToString();
+                                        oldBarcode = form.grdGrid.GetRowCellValue(a, "Barkod").ToString();
+                                        if (barcode == oldBarcode)
+                                        {
+                                            state = "true";
+                                            break;
+                                        }
+                                        else
+                                            state = "false";
 
+                                    }
+                                    if (state == "false")
+                                    {
+                                        row = form.dtBox.NewRow();
+                                        row["Kart Ref"] = int.Parse(gridView1.GetRowCellValue(i, "Ref").ToString());
+                                        row["Kart Kodu"] = gridView1.GetRowCellValue(i, "Kart Kodu").ToString();
+                                        row["Kart Adı"] = gridView1.GetRowCellValue(i, "Kart Adı").ToString();
+                                        row["Renk"] = gridView1.GetRowCellValue(i, "Renk").ToString();
+                                        row["Beden"] = gridView1.GetRowCellValue(i, "Beden").ToString();
+                                        row["Barkod"] = gridView1.GetRowCellValue(i, "Barkod").ToString();
+                                        row["Birim Ref"] = gridView1.GetRowCellValue(i, "Birim Ref").ToString();
+                                        row["Birim Kodu"] = gridView1.GetRowCellValue(i, "Birim Kodu").ToString();
+                                        row["Fiyat"] = 1;
+                                        form.dtBox.Rows.Add(row);
+                                    }
                                 }
-                                if (state == "false")
+                                else
                                 {
                                     row = form.dtBox.NewRow();
                                     row["Kart Ref"] = int.Parse(gridView1.GetRowCellValue(i, "Ref").ToString());
@@ -208,50 +223,47 @@ namespace Erp.Stock
                                     form.dtBox.Rows.Add(row);
                                 }
                             }
-                            else
-                            {
-                                row = form.dtBox.NewRow();
-                                row["Kart Ref"] = int.Parse(gridView1.GetRowCellValue(i, "Ref").ToString());
-                                row["Kart Kodu"] = gridView1.GetRowCellValue(i, "Kart Kodu").ToString();
-                                row["Kart Adı"] = gridView1.GetRowCellValue(i, "Kart Adı").ToString();
-                                row["Renk"] = gridView1.GetRowCellValue(i, "Renk").ToString();
-                                row["Beden"] = gridView1.GetRowCellValue(i, "Beden").ToString();
-                                row["Barkod"] = gridView1.GetRowCellValue(i, "Barkod").ToString();
-                                row["Birim Ref"] = gridView1.GetRowCellValue(i, "Birim Ref").ToString();
-                                row["Birim Kodu"] = gridView1.GetRowCellValue(i, "Birim Kodu").ToString();
-                                row["Fiyat"] = 1;
-                                form.dtBox.Rows.Add(row);
-                            }
                         }
                     }
-                }
-                #endregion
+                    #endregion
 
-                #region Kampanya
+                    #region Kampanya
 
-                else if (gelen == "Campaing")
-                {
-                    Sell.FrmCampaings form = (Sell.FrmCampaings)Application.OpenForms["FrmCampaings"];
-                    for (int i = 0; i < gridView1.RowCount; i++)
+                    else if (gelen == "Campaing")
                     {
-                        if (gridView1.GetRowCellValue(i, "Seçim").ToString() == "True")
+                        Sell.FrmCampaings form = (Sell.FrmCampaings)Application.OpenForms["FrmCampaings"];
+                        for (int i = 0; i < gridView1.RowCount; i++)
                         {
-                            if (form.grdGrid.RowCount - 1 > 0)
+                            if (gridView1.GetRowCellValue(i, "Seçim").ToString() == "True")
                             {
-                                for (int a = 0; a < form.grdGrid.RowCount - 1; a++)
+                                if (form.grdGrid.RowCount - 1 > 0)
                                 {
-                                    barcode = gridView1.GetRowCellValue(i, "Barkod").ToString();
-                                    oldBarcode = form.grdGrid.GetRowCellValue(a, "Barkod").ToString();
-                                    if (barcode == oldBarcode)
+                                    for (int a = 0; a < form.grdGrid.RowCount - 1; a++)
                                     {
-                                        state = "true";
-                                        break;
-                                    }
-                                    else
-                                        state = "false";
+                                        barcode = gridView1.GetRowCellValue(i, "Barkod").ToString();
+                                        oldBarcode = form.grdGrid.GetRowCellValue(a, "Barkod").ToString();
+                                        if (barcode == oldBarcode)
+                                        {
+                                            state = "true";
+                                            break;
+                                        }
+                                        else
+                                            state = "false";
 
+                                    }
+                                    if (state == "false")
+                                    {
+                                        row = form.dtBox.NewRow();
+                                        row["Kart Ref"] = int.Parse(gridView1.GetRowCellValue(i, "Ref").ToString());
+                                        row["Kart Kodu"] = gridView1.GetRowCellValue(i, "Kart Kodu").ToString();
+                                        row["Kart Adı"] = gridView1.GetRowCellValue(i, "Kart Adı").ToString();
+                                        row["Renk"] = gridView1.GetRowCellValue(i, "Renk").ToString();
+                                        row["Beden"] = gridView1.GetRowCellValue(i, "Beden").ToString();
+                                        row["Barkod"] = gridView1.GetRowCellValue(i, "Barkod").ToString();
+                                        form.dtBox.Rows.Add(row);
+                                    }
                                 }
-                                if (state == "false")
+                                else
                                 {
                                     row = form.dtBox.NewRow();
                                     row["Kart Ref"] = int.Parse(gridView1.GetRowCellValue(i, "Ref").ToString());
@@ -263,48 +275,60 @@ namespace Erp.Stock
                                     form.dtBox.Rows.Add(row);
                                 }
                             }
-                            else
-                            {
-                                row = form.dtBox.NewRow();
-                                row["Kart Ref"] = int.Parse(gridView1.GetRowCellValue(i, "Ref").ToString());
-                                row["Kart Kodu"] = gridView1.GetRowCellValue(i, "Kart Kodu").ToString();
-                                row["Kart Adı"] = gridView1.GetRowCellValue(i, "Kart Adı").ToString();
-                                row["Renk"] = gridView1.GetRowCellValue(i, "Renk").ToString();
-                                row["Beden"] = gridView1.GetRowCellValue(i, "Beden").ToString();
-                                row["Barkod"] = gridView1.GetRowCellValue(i, "Barkod").ToString();
-                                form.dtBox.Rows.Add(row);
-                            }
                         }
                     }
-                }
 
-                #endregion
+                    #endregion
 
-                #region İndirim
+                    #region İndirim
 
-                else if (gelen == "Discount")
-                {
-                    Sell.FrmDiscount form = (Sell.FrmDiscount)Application.OpenForms["FrmDiscount"];
-                    for (int i = 0; i < gridView1.RowCount; i++)
+                    else if (gelen == "Discount")
                     {
-                        if (gridView1.GetRowCellValue(i, "Seçim").ToString() == "True")
+                        Sell.FrmDiscount form = (Sell.FrmDiscount)Application.OpenForms["FrmDiscount"];
+                        for (int i = 0; i < gridView1.RowCount; i++)
                         {
-                            if (form.grdGrid.RowCount - 1 > 0)
+                            if (gridView1.GetRowCellValue(i, "Seçim").ToString() == "True")
                             {
-                                for (int a = 0; a < form.grdGrid.RowCount - 1; a++)
+                                if (form.grdGrid.RowCount - 1 > 0)
                                 {
-                                    barcode = gridView1.GetRowCellValue(i, "Barkod").ToString();
-                                    oldBarcode = form.grdGrid.GetRowCellValue(a, "Barkod").ToString();
-                                    if (barcode == oldBarcode)
+                                    for (int a = 0; a < form.grdGrid.RowCount - 1; a++)
                                     {
-                                        state = "true";
-                                        break;
-                                    }
-                                    else
-                                        state = "false";
+                                        barcode = gridView1.GetRowCellValue(i, "Barkod").ToString();
+                                        oldBarcode = form.grdGrid.GetRowCellValue(a, "Barkod").ToString();
+                                        if (barcode == oldBarcode)
+                                        {
+                                            state = "true";
+                                            break;
+                                        }
+                                        else
+                                            state = "false";
 
+                                    }
+                                    if (state == "false")
+                                    {
+                                        row = form.dtBox.NewRow();
+                                        row["İndirim Tipi"] = 400;
+                                        row["Kart Ref"] = int.Parse(gridView1.GetRowCellValue(i, "Ref").ToString());
+                                        row["Kart Kodu"] = gridView1.GetRowCellValue(i, "Kart Kodu").ToString();
+                                        row["Kart Adı"] = gridView1.GetRowCellValue(i, "Kart Adı").ToString();
+                                        row["Renk"] = gridView1.GetRowCellValue(i, "Renk").ToString();
+                                        row["Beden"] = gridView1.GetRowCellValue(i, "Beden").ToString();
+                                        row["Barkod"] = gridView1.GetRowCellValue(i, "Barkod").ToString();
+                                        row["Birim Ref"] = gridView1.GetRowCellValue(i, "Birim Ref").ToString();
+                                        row["Birim Kodu"] = gridView1.GetRowCellValue(i, "Birim Kodu").ToString();
+
+
+                                        string paramBarcode = gridView1.GetRowCellValue(i, "Barkod").ToString();
+                                        db.AddParameterValue("@branchRef", branchRef);
+                                        db.AddParameterValue("@barcode", paramBarcode);
+                                        row["Eski Fiyat"] = decimal.Parse(db.GetScalarValue("select  dbo.Tools_GetLastActiveSellPrice(@barcode,@branchRef)").ToString());
+
+
+
+                                        form.dtBox.Rows.Add(row);
+                                    }
                                 }
-                                if (state == "false")
+                                else
                                 {
                                     row = form.dtBox.NewRow();
                                     row["İndirim Tipi"] = 400;
@@ -318,6 +342,7 @@ namespace Erp.Stock
                                     row["Birim Kodu"] = gridView1.GetRowCellValue(i, "Birim Kodu").ToString();
 
 
+
                                     string paramBarcode = gridView1.GetRowCellValue(i, "Barkod").ToString();
                                     db.AddParameterValue("@branchRef", branchRef);
                                     db.AddParameterValue("@barcode", paramBarcode);
@@ -328,60 +353,50 @@ namespace Erp.Stock
                                     form.dtBox.Rows.Add(row);
                                 }
                             }
-                            else
-                            {
-                                row = form.dtBox.NewRow();
-                                row["İndirim Tipi"] = 400;
-                                row["Kart Ref"] = int.Parse(gridView1.GetRowCellValue(i, "Ref").ToString());
-                                row["Kart Kodu"] = gridView1.GetRowCellValue(i, "Kart Kodu").ToString();
-                                row["Kart Adı"] = gridView1.GetRowCellValue(i, "Kart Adı").ToString();
-                                row["Renk"] = gridView1.GetRowCellValue(i, "Renk").ToString();
-                                row["Beden"] = gridView1.GetRowCellValue(i, "Beden").ToString();
-                                row["Barkod"] = gridView1.GetRowCellValue(i, "Barkod").ToString();
-                                row["Birim Ref"] = gridView1.GetRowCellValue(i, "Birim Ref").ToString();
-                                row["Birim Kodu"] = gridView1.GetRowCellValue(i, "Birim Kodu").ToString();
-
-
-
-                                string paramBarcode = gridView1.GetRowCellValue(i, "Barkod").ToString();
-                                db.AddParameterValue("@branchRef", branchRef);
-                                db.AddParameterValue("@barcode", paramBarcode);
-                                row["Eski Fiyat"] = decimal.Parse(db.GetScalarValue("select  dbo.Tools_GetLastActiveSellPrice(@barcode,@branchRef)").ToString());
-
-
-
-                                form.dtBox.Rows.Add(row);
-                            }
                         }
                     }
-                }
 
-                #endregion
+                    #endregion
 
-                #region Buy List 
-                else if (gelen == "Buy")
-                {
-                    Buy.FrmBuyList form = (Buy.FrmBuyList)Application.OpenForms["FrmBuyList"];
-                    for (int i = 0; i < gridView1.RowCount; i++)
+                    #region Buy List 
+                    else if (gelen == "Buy")
                     {
-                        if (gridView1.GetRowCellValue(i, "Seçim").ToString() == "True")
+                        Buy.FrmBuyList form = (Buy.FrmBuyList)Application.OpenForms["FrmBuyList"];
+                        for (int i = 0; i < gridView1.RowCount; i++)
                         {
-                            if (form.grdGrid.RowCount - 1 > 0)
+                            if (gridView1.GetRowCellValue(i, "Seçim").ToString() == "True")
                             {
-                                for (int a = 0; a < form.grdGrid.RowCount - 1; a++)
+                                if (form.grdGrid.RowCount - 1 > 0)
                                 {
-                                    barcode = gridView1.GetRowCellValue(i, "Barkod").ToString();
-                                    oldBarcode = form.grdGrid.GetRowCellValue(a, "Barkod").ToString();
-                                    if (barcode == oldBarcode)
+                                    for (int a = 0; a < form.grdGrid.RowCount - 1; a++)
                                     {
-                                        state = "true";
-                                        break;
-                                    }
-                                    else
-                                        state = "false";
+                                        barcode = gridView1.GetRowCellValue(i, "Barkod").ToString();
+                                        oldBarcode = form.grdGrid.GetRowCellValue(a, "Barkod").ToString();
+                                        if (barcode == oldBarcode)
+                                        {
+                                            state = "true";
+                                            break;
+                                        }
+                                        else
+                                            state = "false";
 
+                                    }
+                                    if (state == "false")
+                                    {
+                                        row = form.dtBox.NewRow();
+                                        row["Kart Ref"] = int.Parse(gridView1.GetRowCellValue(i, "Ref").ToString());
+                                        row["Kart Kodu"] = gridView1.GetRowCellValue(i, "Kart Kodu").ToString();
+                                        row["Kart Adı"] = gridView1.GetRowCellValue(i, "Kart Adı").ToString();
+                                        row["Renk"] = gridView1.GetRowCellValue(i, "Renk").ToString();
+                                        row["Beden"] = gridView1.GetRowCellValue(i, "Beden").ToString();
+                                        row["Barkod"] = gridView1.GetRowCellValue(i, "Barkod").ToString();
+                                        row["Birim Ref"] = gridView1.GetRowCellValue(i, "Birim Ref").ToString();
+                                        row["Birim Kodu"] = gridView1.GetRowCellValue(i, "Birim Kodu").ToString();
+                                        row["Fiyat"] = 1;
+                                        form.dtBox.Rows.Add(row);
+                                    }
                                 }
-                                if (state == "false")
+                                else
                                 {
                                     row = form.dtBox.NewRow();
                                     row["Kart Ref"] = int.Parse(gridView1.GetRowCellValue(i, "Ref").ToString());
@@ -396,54 +411,63 @@ namespace Erp.Stock
                                     form.dtBox.Rows.Add(row);
                                 }
                             }
-                            else
-                            {
-                                row = form.dtBox.NewRow();
-                                row["Kart Ref"] = int.Parse(gridView1.GetRowCellValue(i, "Ref").ToString());
-                                row["Kart Kodu"] = gridView1.GetRowCellValue(i, "Kart Kodu").ToString();
-                                row["Kart Adı"] = gridView1.GetRowCellValue(i, "Kart Adı").ToString();
-                                row["Renk"] = gridView1.GetRowCellValue(i, "Renk").ToString();
-                                row["Beden"] = gridView1.GetRowCellValue(i, "Beden").ToString();
-                                row["Barkod"] = gridView1.GetRowCellValue(i, "Barkod").ToString();
-                                row["Birim Ref"] = gridView1.GetRowCellValue(i, "Birim Ref").ToString();
-                                row["Birim Kodu"] = gridView1.GetRowCellValue(i, "Birim Kodu").ToString();
-                                row["Fiyat"] = 1;
-                                form.dtBox.Rows.Add(row);
-                            }
                         }
                     }
-                }
-                #endregion
+                    #endregion
 
-                #region Buy Order
-                if (gelen == "Buy Order")
-                {
-                    Buy.FrmBuyOrder form = (Buy.FrmBuyOrder)Application.OpenForms["FrmBuyOrder"];
-                    for (int i = 0; i < gridView1.RowCount; i++)
+                    #region Buy Order
+                    if (gelen == "Buy Order")
                     {
-                        if (gridView1.GetRowCellValue(i, "Seçim").ToString() == "True")
+                        Buy.FrmBuyOrder form = (Buy.FrmBuyOrder)Application.OpenForms["FrmBuyOrder"];
+                        for (int i = 0; i < gridView1.RowCount; i++)
                         {
-                            if (form.grdGrid.RowCount - 1 > 0)
+                            if (gridView1.GetRowCellValue(i, "Seçim").ToString() == "True")
                             {
-                                for (int a = 0; a < form.grdGrid.RowCount - 1; a++)
+                                if (form.grdGrid.RowCount - 1 > 0)
                                 {
-                                    barcode = gridView1.GetRowCellValue(i, "Barkod").ToString();
-                                    oldBarcode = form.grdGrid.GetRowCellValue(a, "Barkod").ToString();
-                                    if (barcode == oldBarcode)
+                                    for (int a = 0; a < form.grdGrid.RowCount - 1; a++)
                                     {
-                                        miktar = int.Parse(form.grdGrid.GetRowCellValue(a, "Miktar").ToString());
-                                        miktar++;
-                                        form.grdGrid.SetRowCellValue(a, "Miktar", miktar);
-                                        state = "true";
-                                        break;
-                                    }
-                                    else
-                                    {
-                                        state = "false";
-                                    }
+                                        barcode = gridView1.GetRowCellValue(i, "Barkod").ToString();
+                                        oldBarcode = form.grdGrid.GetRowCellValue(a, "Barkod").ToString();
+                                        if (barcode == oldBarcode)
+                                        {
+                                            miktar = int.Parse(form.grdGrid.GetRowCellValue(a, "Miktar").ToString());
+                                            miktar++;
+                                            form.grdGrid.SetRowCellValue(a, "Miktar", miktar);
+                                            state = "true";
+                                            break;
+                                        }
+                                        else
+                                        {
+                                            state = "false";
+                                        }
 
+                                    }
+                                    if (state == "false")
+                                    {
+                                        row = form.dtBox.NewRow();
+                                        row["Kart Ref"] = int.Parse(gridView1.GetRowCellValue(i, "Ref").ToString());
+                                        row["Kart Kodu"] = gridView1.GetRowCellValue(i, "Kart Kodu").ToString();
+                                        row["Kart Adı"] = gridView1.GetRowCellValue(i, "Kart Adı").ToString();
+                                        row["Renk"] = gridView1.GetRowCellValue(i, "Renk").ToString();
+                                        row["Beden"] = gridView1.GetRowCellValue(i, "Beden").ToString();
+                                        row["Barkod"] = gridView1.GetRowCellValue(i, "Barkod").ToString();
+                                        row["Birim Ref"] = gridView1.GetRowCellValue(i, "Birim Ref").ToString();
+                                        row["Birim Kodu"] = gridView1.GetRowCellValue(i, "Birim Kodu").ToString();
+                                        row["Miktar"] = 1;
+
+                                        db.AddParameterValue("@barcode", gridView1.GetRowCellValue(i, "Barkod").ToString());
+                                        db.AddParameterValue("@branchRef", form.ledBranch.GetValue());
+                                        string price = db.GetScalarValue("select  dbo.Tools_GetLastActiveBuyPrice(@barcode,@branchRef)").ToString();
+                                        row["Birim Fiyat"] = price;
+                                        decimal total = 1 * decimal.Parse(price);
+                                        row["Toplam Tutar"] = total;
+
+                                        form.dtBox.Rows.Add(row);
+
+                                    }
                                 }
-                                if (state == "false")
+                                else
                                 {
                                     row = form.dtBox.NewRow();
                                     row["Kart Ref"] = int.Parse(gridView1.GetRowCellValue(i, "Ref").ToString());
@@ -455,73 +479,73 @@ namespace Erp.Stock
                                     row["Birim Ref"] = gridView1.GetRowCellValue(i, "Birim Ref").ToString();
                                     row["Birim Kodu"] = gridView1.GetRowCellValue(i, "Birim Kodu").ToString();
                                     row["Miktar"] = 1;
-
                                     db.AddParameterValue("@barcode", gridView1.GetRowCellValue(i, "Barkod").ToString());
                                     db.AddParameterValue("@branchRef", form.ledBranch.GetValue());
                                     string price = db.GetScalarValue("select  dbo.Tools_GetLastActiveBuyPrice(@barcode,@branchRef)").ToString();
                                     row["Birim Fiyat"] = price;
                                     decimal total = 1 * decimal.Parse(price);
                                     row["Toplam Tutar"] = total;
-
                                     form.dtBox.Rows.Add(row);
-
                                 }
-                            }
-                            else
-                            {
-                                row = form.dtBox.NewRow();
-                                row["Kart Ref"] = int.Parse(gridView1.GetRowCellValue(i, "Ref").ToString());
-                                row["Kart Kodu"] = gridView1.GetRowCellValue(i, "Kart Kodu").ToString();
-                                row["Kart Adı"] = gridView1.GetRowCellValue(i, "Kart Adı").ToString();
-                                row["Renk"] = gridView1.GetRowCellValue(i, "Renk").ToString();
-                                row["Beden"] = gridView1.GetRowCellValue(i, "Beden").ToString();
-                                row["Barkod"] = gridView1.GetRowCellValue(i, "Barkod").ToString();
-                                row["Birim Ref"] = gridView1.GetRowCellValue(i, "Birim Ref").ToString();
-                                row["Birim Kodu"] = gridView1.GetRowCellValue(i, "Birim Kodu").ToString();
-                                row["Miktar"] = 1;
-                                db.AddParameterValue("@barcode", gridView1.GetRowCellValue(i, "Barkod").ToString());
-                                db.AddParameterValue("@branchRef", form.ledBranch.GetValue());
-                                string price = db.GetScalarValue("select  dbo.Tools_GetLastActiveBuyPrice(@barcode,@branchRef)").ToString();
-                                row["Birim Fiyat"] = price;
-                                decimal total = 1 * decimal.Parse(price);
-                                row["Toplam Tutar"] = total;
-                                form.dtBox.Rows.Add(row);
                             }
                         }
+                        form.Calculate();
                     }
-                    form.Calculate();
-                }
-                #endregion
+                    #endregion
 
-                #region Sell Order
-                if (gelen == "Sell Order")
-                {
-                    Sell.FrmSellOrder form = (Sell.FrmSellOrder)Application.OpenForms["FrmSellOrder"];
-                    for (int i = 0; i < gridView1.RowCount; i++)
+                    #region Sell Order
+                    if (gelen == "Sell Order")
                     {
-                        if (gridView1.GetRowCellValue(i, "Seçim").ToString() == "True")
+                        Sell.FrmSellOrder form = (Sell.FrmSellOrder)Application.OpenForms["FrmSellOrder"];
+                        for (int i = 0; i < gridView1.RowCount; i++)
                         {
-                            if (form.grdGrid.RowCount - 1 > 0)
+                            if (gridView1.GetRowCellValue(i, "Seçim").ToString() == "True")
                             {
-                                for (int a = 0; a < form.grdGrid.RowCount - 1; a++)
+                                if (form.grdGrid.RowCount - 1 > 0)
                                 {
-                                    barcode = gridView1.GetRowCellValue(i, "Barkod").ToString();
-                                    oldBarcode = form.grdGrid.GetRowCellValue(a, "Barkod").ToString();
-                                    if (barcode == oldBarcode)
+                                    for (int a = 0; a < form.grdGrid.RowCount - 1; a++)
                                     {
-                                        miktar = int.Parse(form.grdGrid.GetRowCellValue(a, "Miktar").ToString());
-                                        miktar++;
-                                        form.grdGrid.SetRowCellValue(a, "Miktar", miktar);
-                                        state = "true";
-                                        break;
-                                    }
-                                    else
-                                    {
-                                        state = "false";
-                                    }
+                                        barcode = gridView1.GetRowCellValue(i, "Barkod").ToString();
+                                        oldBarcode = form.grdGrid.GetRowCellValue(a, "Barkod").ToString();
+                                        if (barcode == oldBarcode)
+                                        {
+                                            miktar = int.Parse(form.grdGrid.GetRowCellValue(a, "Miktar").ToString());
+                                            miktar++;
+                                            form.grdGrid.SetRowCellValue(a, "Miktar", miktar);
+                                            state = "true";
+                                            break;
+                                        }
+                                        else
+                                        {
+                                            state = "false";
+                                        }
 
+                                    }
+                                    if (state == "false")
+                                    {
+                                        row = form.dtBox.NewRow();
+                                        row["Kart Ref"] = int.Parse(gridView1.GetRowCellValue(i, "Ref").ToString());
+                                        row["Kart Kodu"] = gridView1.GetRowCellValue(i, "Kart Kodu").ToString();
+                                        row["Kart Adı"] = gridView1.GetRowCellValue(i, "Kart Adı").ToString();
+                                        row["Renk"] = gridView1.GetRowCellValue(i, "Renk").ToString();
+                                        row["Beden"] = gridView1.GetRowCellValue(i, "Beden").ToString();
+                                        row["Barkod"] = gridView1.GetRowCellValue(i, "Barkod").ToString();
+                                        row["Birim Ref"] = gridView1.GetRowCellValue(i, "Birim Ref").ToString();
+                                        row["Birim Kodu"] = gridView1.GetRowCellValue(i, "Birim Kodu").ToString();
+                                        row["Miktar"] = 1;
+
+                                        db.AddParameterValue("@barcode", gridView1.GetRowCellValue(i, "Barkod").ToString());
+                                        db.AddParameterValue("@branchRef", form.ledBranch.GetValue());
+                                        string price = db.GetScalarValue("select  dbo.Tools_GetLastActiveSellPrice(@barcode,@branchRef)").ToString();
+                                        row["Birim Fiyat"] = price;
+                                        decimal total = 1 * decimal.Parse(price);
+                                        row["Toplam Tutar"] = total;
+
+                                        form.dtBox.Rows.Add(row);
+
+                                    }
                                 }
-                                if (state == "false")
+                                else
                                 {
                                     row = form.dtBox.NewRow();
                                     row["Kart Ref"] = int.Parse(gridView1.GetRowCellValue(i, "Ref").ToString());
@@ -533,47 +557,23 @@ namespace Erp.Stock
                                     row["Birim Ref"] = gridView1.GetRowCellValue(i, "Birim Ref").ToString();
                                     row["Birim Kodu"] = gridView1.GetRowCellValue(i, "Birim Kodu").ToString();
                                     row["Miktar"] = 1;
-
                                     db.AddParameterValue("@barcode", gridView1.GetRowCellValue(i, "Barkod").ToString());
                                     db.AddParameterValue("@branchRef", form.ledBranch.GetValue());
                                     string price = db.GetScalarValue("select  dbo.Tools_GetLastActiveSellPrice(@barcode,@branchRef)").ToString();
                                     row["Birim Fiyat"] = price;
                                     decimal total = 1 * decimal.Parse(price);
                                     row["Toplam Tutar"] = total;
-
                                     form.dtBox.Rows.Add(row);
-
                                 }
                             }
-                            else
-                            {
-                                row = form.dtBox.NewRow();
-                                row["Kart Ref"] = int.Parse(gridView1.GetRowCellValue(i, "Ref").ToString());
-                                row["Kart Kodu"] = gridView1.GetRowCellValue(i, "Kart Kodu").ToString();
-                                row["Kart Adı"] = gridView1.GetRowCellValue(i, "Kart Adı").ToString();
-                                row["Renk"] = gridView1.GetRowCellValue(i, "Renk").ToString();
-                                row["Beden"] = gridView1.GetRowCellValue(i, "Beden").ToString();
-                                row["Barkod"] = gridView1.GetRowCellValue(i, "Barkod").ToString();
-                                row["Birim Ref"] = gridView1.GetRowCellValue(i, "Birim Ref").ToString();
-                                row["Birim Kodu"] = gridView1.GetRowCellValue(i, "Birim Kodu").ToString();
-                                row["Miktar"] = 1;
-                                db.AddParameterValue("@barcode", gridView1.GetRowCellValue(i, "Barkod").ToString());
-                                db.AddParameterValue("@branchRef", form.ledBranch.GetValue());
-                                string price = db.GetScalarValue("select  dbo.Tools_GetLastActiveSellPrice(@barcode,@branchRef)").ToString();
-                                row["Birim Fiyat"] = price;
-                                decimal total = 1 * decimal.Parse(price);
-                                row["Toplam Tutar"] = total;
-                                form.dtBox.Rows.Add(row);
-                            }
                         }
+                        form.Calculate();
                     }
-                    form.Calculate();
-                }
-                #endregion
+                    #endregion
 
-                this.DialogResult = DialogResult.OK;
-                this.Close();
-            }
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                }
             }
             catch (Exception ex)
             {

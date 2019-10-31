@@ -82,6 +82,7 @@ namespace Erp.Tools
             }
             dgwGrid.DataSource = dt;
             grdGrid.OptionsBehavior.Editable = false;
+            grdGrid.BestFitColumns();
 
 
         }

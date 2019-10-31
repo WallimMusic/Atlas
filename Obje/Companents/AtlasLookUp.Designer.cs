@@ -37,18 +37,19 @@
             this.flaLookUp.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flaLookUp.EnterMoveNextControl = true;
             this.flaLookUp.Location = new System.Drawing.Point(0, 0);
+            this.flaLookUp.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.flaLookUp.Name = "flaLookUp";
-            this.flaLookUp.Properties.Appearance.BackColor = System.Drawing.Color.Bisque;
+            this.flaLookUp.Properties.Appearance.BackColor = System.Drawing.Color.LightBlue;
             this.flaLookUp.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
             this.flaLookUp.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
             this.flaLookUp.Properties.Appearance.Options.UseBackColor = true;
             this.flaLookUp.Properties.Appearance.Options.UseFont = true;
             this.flaLookUp.Properties.Appearance.Options.UseForeColor = true;
-            this.flaLookUp.Properties.AppearanceDropDown.BackColor = System.Drawing.Color.Bisque;
+            this.flaLookUp.Properties.AppearanceDropDown.BackColor = System.Drawing.Color.LightBlue;
             this.flaLookUp.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
             this.flaLookUp.Properties.AppearanceDropDown.Options.UseBackColor = true;
             this.flaLookUp.Properties.AppearanceDropDown.Options.UseFont = true;
-            this.flaLookUp.Properties.AppearanceFocused.BackColor = System.Drawing.Color.PaleGreen;
+            this.flaLookUp.Properties.AppearanceFocused.BackColor = System.Drawing.Color.Orange;
             this.flaLookUp.Properties.AppearanceFocused.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
             this.flaLookUp.Properties.AppearanceFocused.Options.UseBackColor = true;
             this.flaLookUp.Properties.AppearanceFocused.Options.UseFont = true;
@@ -56,17 +57,18 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.flaLookUp.Properties.NullText = "";
             this.flaLookUp.Properties.ShowFooter = false;
-            this.flaLookUp.Size = new System.Drawing.Size(170, 20);
+            this.flaLookUp.Size = new System.Drawing.Size(227, 24);
             this.flaLookUp.TabIndex = 0;
             this.flaLookUp.EditValueChanged += new System.EventHandler(this.flaLookUp_EditValueChanged);
             // 
             // AtlasLookUp
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.flaLookUp);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "AtlasLookUp";
-            this.Size = new System.Drawing.Size(170, 20);
+            this.Size = new System.Drawing.Size(227, 25);
             ((System.ComponentModel.ISupportInitialize)(this.flaLookUp.Properties)).EndInit();
             this.ResumeLayout(false);
 

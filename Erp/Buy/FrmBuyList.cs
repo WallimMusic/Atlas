@@ -12,6 +12,8 @@ using Obje.Classes;
 using DevExpress.XtraEditors.Repository;
 using System.Globalization;
 using DevExpress.XtraEditors.Controls;
+using DevExpress.Utils;
+using DevExpress.XtraGrid.Columns;
 
 namespace Erp.Buy
 {
@@ -73,6 +75,10 @@ namespace Erp.Buy
             grdGrid.Columns[1].Visible = false;
             grdGrid.Columns[2].Visible = false;
             grdGrid.Columns[3].ColumnEdit = riBtnStockCode;
+
+
+
+            grdGrid.Columns["Fiyat"].FieldName = "price";
 
             //grdGrid.Columns[8].ColumnEdit = riLedUnit;
             grdGrid.Columns[8].Visible = false;
@@ -204,6 +210,13 @@ namespace Erp.Buy
                 dgwGrid.DataSource = dtBox;
                 grdGrid.RefreshData();
             }
+
+
+
+
+            GridColumn colModelPrice = grdGrid.Columns["price"];
+            colModelPrice.DisplayFormat.FormatType = FormatType.Numeric;
+            colModelPrice.DisplayFormat.FormatString = "{0:n}";
             c.StateStabil(this);
         }
 
@@ -214,22 +227,20 @@ namespace Erp.Buy
 
         private void bbiPriceUpdate_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (!string.IsNullOrEmpty(grdGrid.GetFocusedRowCellValue("Fiyat").ToString()))
-            {
-                grdGrid.Columns[3].UnGroup();
-                string cardCode = (grdGrid.GetFocusedRowCellValue("Kart Kodu").ToString());
-                decimal Price = decimal.Parse(grdGrid.GetFocusedRowCellValue("Fiyat").ToString());
-
-                grdGrid.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.None;
-                for (int i = 0; i < grdGrid.RowCount; i++)
+            if (grdGrid.RowCount - 1 > 0)
+                if (!string.IsNullOrEmpty(grdGrid.GetFocusedRowCellValue("Fiyat").ToString()))
                 {
-                    if (grdGrid.GetRowCellValue(i, "Kart Kodu").ToString() == cardCode)
-                        grdGrid.SetRowCellValue(i, "Fiyat", Price);
+                    grdGrid.Columns[3].UnGroup();
+                    string cardCode = (grdGrid.GetFocusedRowCellValue("Kart Kodu").ToString());
+                    decimal Price = decimal.Parse(grdGrid.GetFocusedRowCellValue("Fiyat").ToString());
+
+                    grdGrid.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.None;
+                    for (int i = 0; i < grdGrid.RowCount; i++)
+                    {
+                        if (grdGrid.GetRowCellValue(i, "Kart Kodu").ToString() == cardCode)
+                            grdGrid.SetRowCellValue(i, "Fiyat", Price);
+                    }
                 }
-            }
-
-            grdGrid.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
-
 
         }
 
@@ -386,7 +397,7 @@ namespace Erp.Buy
 
         private void grdGrid_PopupMenuShowing_1(object sender, DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventArgs e)
         {
-            pmBranch.ShowPopup(Cursor.Position);
+            pmMenu.ShowPopup(Cursor.Position);
         }
 
         private void bbiApplyAll_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -428,7 +439,14 @@ namespace Erp.Buy
             list.gelen = "Buy";
             list.ShowDialog();
 
+            if (list.DialogResult == DialogResult.OK)
+                grdGrid.BestFitColumns();
 
+        }
+
+        private void grdGrid_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
+        {
+            grdGrid.BestFitColumns();
         }
 
         private void btnEscape_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

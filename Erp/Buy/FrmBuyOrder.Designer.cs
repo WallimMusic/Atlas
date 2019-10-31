@@ -92,7 +92,7 @@
             // txtName
             // 
             this.txtName.Location = new System.Drawing.Point(101, 55);
-            this.txtName.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtName.Margin = new System.Windows.Forms.Padding(5);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(160, 25);
             this.txtName.TabIndex = 2;
@@ -108,7 +108,7 @@
             // ledWhouse
             // 
             this.ledWhouse.Location = new System.Drawing.Point(345, 54);
-            this.ledWhouse.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.ledWhouse.Margin = new System.Windows.Forms.Padding(5);
             this.ledWhouse.Name = "ledWhouse";
             this.ledWhouse.Size = new System.Drawing.Size(157, 25);
             this.ledWhouse.TabIndex = 5;
@@ -141,7 +141,7 @@
             this.riLedDirection,
             this.riBtnStockCode,
             this.riLedUnit});
-            this.dgwGrid.Size = new System.Drawing.Size(1049, 415);
+            this.dgwGrid.Size = new System.Drawing.Size(1279, 678);
             this.dgwGrid.TabIndex = 17;
             this.dgwGrid.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grdGrid,
@@ -204,7 +204,7 @@
             // txtCode
             // 
             this.txtCode.Location = new System.Drawing.Point(101, 26);
-            this.txtCode.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtCode.Margin = new System.Windows.Forms.Padding(5);
             this.txtCode.Name = "txtCode";
             this.txtCode.Size = new System.Drawing.Size(160, 25);
             this.txtCode.TabIndex = 1;
@@ -219,7 +219,7 @@
             this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox2.Size = new System.Drawing.Size(1055, 439);
+            this.groupBox2.Size = new System.Drawing.Size(1285, 702);
             this.groupBox2.TabIndex = 32;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Satırlar";
@@ -257,7 +257,7 @@
             // ledBranch
             // 
             this.ledBranch.Location = new System.Drawing.Point(345, 22);
-            this.ledBranch.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.ledBranch.Margin = new System.Windows.Forms.Padding(5);
             this.ledBranch.Name = "ledBranch";
             this.ledBranch.Size = new System.Drawing.Size(157, 25);
             this.ledBranch.TabIndex = 4;
@@ -306,20 +306,20 @@
             this.ribbonControl1.ExpandCollapseItem.Id = 0;
             this.ribbonControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbonControl1.ExpandCollapseItem,
+            this.ribbonControl1.SearchEditItem,
             this.btnSave,
             this.btnEscape,
             this.btnDeleteLine,
             this.bbiApplyAll,
             this.bbiApplyCard,
-            this.bbiOrderAccept,
-            this.ribbonControl1.SearchEditItem});
+            this.bbiOrderAccept});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ribbonControl1.MaxItemId = 1;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
-            this.ribbonControl1.Size = new System.Drawing.Size(1055, 156);
+            this.ribbonControl1.Size = new System.Drawing.Size(1285, 156);
             // 
             // btnSave
             // 
@@ -393,7 +393,7 @@
             // txtDesc
             // 
             this.txtDesc.Location = new System.Drawing.Point(101, 117);
-            this.txtDesc.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtDesc.Margin = new System.Windows.Forms.Padding(5);
             this.txtDesc.Name = "txtDesc";
             this.txtDesc.Size = new System.Drawing.Size(401, 25);
             this.txtDesc.TabIndex = 7;
@@ -411,7 +411,7 @@
             // ledCustomer
             // 
             this.ledCustomer.Location = new System.Drawing.Point(345, 85);
-            this.ledCustomer.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.ledCustomer.Margin = new System.Windows.Forms.Padding(5);
             this.ledCustomer.Name = "ledCustomer";
             this.ledCustomer.Size = new System.Drawing.Size(157, 25);
             this.ledCustomer.TabIndex = 6;
@@ -517,7 +517,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1055, 639);
+            this.ClientSize = new System.Drawing.Size(1285, 902);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);

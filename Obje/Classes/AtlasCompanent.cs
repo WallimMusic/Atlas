@@ -86,14 +86,14 @@ namespace Obje.Classes
             {
                 e.Appearance.FontStyleDelta = FontStyle.Bold;
                 e.Appearance.ForeColor = Color.Black;
+             
             }
-
         }
 
         public static void View_CustomDrawCell(object sender, DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)
         {
             if (e.RowHandle % 2 == 0)
-                e.Appearance.BackColor = Color.Bisque;
+                e.Appearance.BackColor = Color.LightBlue;
         }
 
         public static void dgw_Resize(object sender, EventArgs e)

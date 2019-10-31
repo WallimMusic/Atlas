@@ -63,7 +63,7 @@
             this.Controls.Add(this.dgwGrid);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FrmPriceList";
-            this.Text = "FrmPriceList";
+            this.Text = "Fiyat Listesi";
             this.Load += new System.EventHandler(this.FrmPriceList_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgwGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdGrid)).EndInit();

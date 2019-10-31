@@ -30,7 +30,7 @@
             this.flashCombo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flashCombo.Location = new System.Drawing.Point(0, 0);
             this.flashCombo.Name = "flashCombo";
-            this.flashCombo.Properties.Appearance.BackColor = System.Drawing.Color.Bisque;
+            this.flashCombo.Properties.Appearance.BackColor = System.Drawing.Color.LightBlue;
             this.flashCombo.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
             this.flashCombo.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
             this.flashCombo.Properties.Appearance.Options.UseBackColor = true;
@@ -42,7 +42,7 @@
             this.flashCombo.Properties.AppearanceDropDown.Options.UseBackColor = true;
             this.flashCombo.Properties.AppearanceDropDown.Options.UseFont = true;
             this.flashCombo.Properties.AppearanceDropDown.Options.UseForeColor = true;
-            this.flashCombo.Properties.AppearanceFocused.BackColor = System.Drawing.Color.PaleGreen;
+            this.flashCombo.Properties.AppearanceFocused.BackColor = System.Drawing.Color.Orange;
             this.flashCombo.Properties.AppearanceFocused.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
             this.flashCombo.Properties.AppearanceFocused.ForeColor = System.Drawing.Color.Black;
             this.flashCombo.Properties.AppearanceFocused.Options.UseBackColor = true;
@@ -51,7 +51,7 @@
             this.flashCombo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.flashCombo.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.flashCombo.Size = new System.Drawing.Size(170, 20);
+            this.flashCombo.Size = new System.Drawing.Size(170, 24);
             this.flashCombo.TabIndex = 0;
             // 
             // AtlasComboBox

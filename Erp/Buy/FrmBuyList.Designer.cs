@@ -30,11 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmBuyList));
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions5 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject17 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject18 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject19 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject20 = new DevExpress.Utils.SerializableAppearanceObject();
             this.btnSave = new DevExpress.XtraBars.BarButtonItem();
             this.btnEscape = new DevExpress.XtraBars.BarButtonItem();
             this.btnDeleteLine = new DevExpress.XtraBars.BarButtonItem();
@@ -156,16 +156,19 @@
             // navBar
             // 
             this.navBar.ActiveGroup = this.navBarGroup1;
+            this.navBar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.navBar.Controls.Add(this.navBarGroupControlContainer1);
             this.navBar.Controls.Add(this.navBarGroupControlContainer2);
-            this.navBar.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.navBar.Groups.AddRange(new DevExpress.XtraNavBar.NavBarGroup[] {
             this.navBarGroup1,
             this.navBarGroup2});
-            this.navBar.Location = new System.Drawing.Point(0, 142);
+            this.navBar.Location = new System.Drawing.Point(6, 191);
+            this.navBar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.navBar.Name = "navBar";
-            this.navBar.OptionsNavPane.ExpandedWidth = 915;
-            this.navBar.Size = new System.Drawing.Size(915, 528);
+            this.navBar.OptionsNavPane.ExpandedWidth = 1067;
+            this.navBar.Size = new System.Drawing.Size(1067, 675);
             this.navBar.TabIndex = 27;
             this.navBar.Text = "navBarControl1";
             // 
@@ -174,7 +177,7 @@
             this.navBarGroup1.Caption = "Satırlar";
             this.navBarGroup1.ControlContainer = this.navBarGroupControlContainer1;
             this.navBarGroup1.Expanded = true;
-            this.navBarGroup1.GroupClientHeight = 319;
+            this.navBarGroup1.GroupClientHeight = 384;
             this.navBarGroup1.GroupStyle = DevExpress.XtraNavBar.NavBarGroupStyle.ControlContainer;
             this.navBarGroup1.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarGroup1.ImageOptions.SmallImage")));
             this.navBarGroup1.Name = "navBarGroup1";
@@ -184,31 +187,36 @@
             this.navBarGroupControlContainer1.Appearance.BackColor = System.Drawing.SystemColors.Control;
             this.navBarGroupControlContainer1.Appearance.Options.UseBackColor = true;
             this.navBarGroupControlContainer1.Controls.Add(this.dgwGrid);
+            this.navBarGroupControlContainer1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.navBarGroupControlContainer1.Name = "navBarGroupControlContainer1";
-            this.navBarGroupControlContainer1.Size = new System.Drawing.Size(907, 312);
+            this.navBarGroupControlContainer1.Size = new System.Drawing.Size(1067, 384);
             this.navBarGroupControlContainer1.TabIndex = 0;
             // 
             // dgwGrid
             // 
             this.dgwGrid.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgwGrid.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgwGrid.Location = new System.Drawing.Point(0, 0);
             this.dgwGrid.MainView = this.grdGrid;
+            this.dgwGrid.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgwGrid.Name = "dgwGrid";
             this.dgwGrid.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.riLedDirection,
             this.riBtnStockCode,
             this.riLedUnit});
-            this.dgwGrid.Size = new System.Drawing.Size(907, 312);
+            this.dgwGrid.Size = new System.Drawing.Size(1067, 384);
             this.dgwGrid.TabIndex = 18;
             this.dgwGrid.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grdGrid});
             // 
             // grdGrid
             // 
+            this.grdGrid.DetailHeight = 431;
             this.grdGrid.GridControl = this.dgwGrid;
             this.grdGrid.Name = "grdGrid";
             this.grdGrid.OptionsView.ShowGroupPanel = false;
             this.grdGrid.PopupMenuShowing += new DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventHandler(this.grdGrid_PopupMenuShowing_1);
+            this.grdGrid.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.grdGrid_CellValueChanged);
             this.grdGrid.KeyDown += new System.Windows.Forms.KeyEventHandler(this.grdGrid_KeyDown);
             // 
             // riLedDirection
@@ -229,7 +237,7 @@
             // 
             this.riBtnStockCode.AutoHeight = false;
             this.riBtnStockCode.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F6), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, true, true, false, editorButtonImageOptions5, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F6), serializableAppearanceObject17, serializableAppearanceObject18, serializableAppearanceObject19, serializableAppearanceObject20, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.riBtnStockCode.Name = "riBtnStockCode";
             // 
             // riLedUnit
@@ -251,18 +259,21 @@
             this.navBarGroupControlContainer2.Appearance.BackColor = System.Drawing.SystemColors.Control;
             this.navBarGroupControlContainer2.Appearance.Options.UseBackColor = true;
             this.navBarGroupControlContainer2.Controls.Add(this.dgwBranch);
+            this.navBarGroupControlContainer2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.navBarGroupControlContainer2.Name = "navBarGroupControlContainer2";
-            this.navBarGroupControlContainer2.Size = new System.Drawing.Size(907, 221);
+            this.navBarGroupControlContainer2.Size = new System.Drawing.Size(1058, 272);
             this.navBarGroupControlContainer2.TabIndex = 1;
             // 
             // dgwBranch
             // 
-            this.dgwBranch.Location = new System.Drawing.Point(-4, 0);
+            this.dgwBranch.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dgwBranch.Location = new System.Drawing.Point(-5, 0);
             this.dgwBranch.MainView = this.grdBranch;
+            this.dgwBranch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgwBranch.Name = "dgwBranch";
             this.dgwBranch.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.riLedBranch});
-            this.dgwBranch.Size = new System.Drawing.Size(272, 218);
+            this.dgwBranch.Size = new System.Drawing.Size(317, 268);
             this.dgwBranch.TabIndex = 0;
             this.dgwBranch.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grdBranch});
@@ -273,6 +284,7 @@
             this.colBranchRef,
             this.colBranch,
             this.colListRef});
+            this.grdBranch.DetailHeight = 431;
             this.grdBranch.GridControl = this.dgwBranch;
             this.grdBranch.Name = "grdBranch";
             this.grdBranch.OptionsView.ShowGroupPanel = false;
@@ -282,16 +294,20 @@
             // 
             this.colBranchRef.Caption = "Ref";
             this.colBranchRef.FieldName = "Ref";
+            this.colBranchRef.MinWidth = 23;
             this.colBranchRef.Name = "colBranchRef";
+            this.colBranchRef.Width = 87;
             // 
             // colBranch
             // 
             this.colBranch.Caption = "Şubeler";
             this.colBranch.ColumnEdit = this.riLedBranch;
             this.colBranch.FieldName = "branchRef";
+            this.colBranch.MinWidth = 23;
             this.colBranch.Name = "colBranch";
             this.colBranch.Visible = true;
             this.colBranch.VisibleIndex = 0;
+            this.colBranch.Width = 87;
             // 
             // riLedBranch
             // 
@@ -311,13 +327,15 @@
             // 
             this.colListRef.Caption = "List Ref";
             this.colListRef.FieldName = "listRef";
+            this.colListRef.MinWidth = 23;
             this.colListRef.Name = "colListRef";
+            this.colListRef.Width = 87;
             // 
             // navBarGroup2
             // 
             this.navBarGroup2.Caption = "Kullanılacak Yerler";
             this.navBarGroup2.ControlContainer = this.navBarGroupControlContainer2;
-            this.navBarGroup2.GroupClientHeight = 228;
+            this.navBarGroup2.GroupClientHeight = 272;
             this.navBarGroup2.GroupStyle = DevExpress.XtraNavBar.NavBarGroupStyle.ControlContainer;
             this.navBarGroup2.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarGroup2.ImageOptions.SmallImage")));
             this.navBarGroup2.Name = "navBarGroup2";
@@ -335,44 +353,48 @@
             this.groupBox1.Controls.Add(this.txtName);
             this.groupBox1.Controls.Add(this.txtCode);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Location = new System.Drawing.Point(0, 32);
+            this.groupBox1.Location = new System.Drawing.Point(6, 55);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(607, 104);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox1.Size = new System.Drawing.Size(708, 128);
             this.groupBox1.TabIndex = 26;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Genel Bilgiler";
             // 
             // chkActive
             // 
-            this.chkActive.Location = new System.Drawing.Point(96, 23);
+            this.chkActive.Location = new System.Drawing.Point(112, 28);
+            this.chkActive.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.chkActive.Name = "chkActive";
-            this.chkActive.Size = new System.Drawing.Size(170, 20);
+            this.chkActive.Size = new System.Drawing.Size(198, 25);
             this.chkActive.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.Location = new System.Drawing.Point(351, 26);
+            this.label1.Location = new System.Drawing.Point(409, 32);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(39, 15);
+            this.label1.Size = new System.Drawing.Size(50, 20);
             this.label1.TabIndex = 54;
             this.label1.Text = "Döviz:";
             // 
             // ledCurr
             // 
-            this.ledCurr.Location = new System.Drawing.Point(396, 23);
+            this.ledCurr.Location = new System.Drawing.Point(462, 28);
+            this.ledCurr.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.ledCurr.Name = "ledCurr";
-            this.ledCurr.Size = new System.Drawing.Size(178, 20);
+            this.ledCurr.Size = new System.Drawing.Size(208, 25);
             this.ledCurr.TabIndex = 4;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label5.Location = new System.Drawing.Point(326, 78);
+            this.label5.Location = new System.Drawing.Point(380, 96);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(64, 15);
+            this.label5.Size = new System.Drawing.Size(79, 20);
             this.label5.TabIndex = 52;
             this.label5.Text = "Bitiş Tarihi:";
             // 
@@ -380,57 +402,61 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label4.Location = new System.Drawing.Point(298, 52);
+            this.label4.Location = new System.Drawing.Point(348, 64);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(92, 15);
+            this.label4.Size = new System.Drawing.Size(114, 20);
             this.label4.TabIndex = 51;
             this.label4.Text = "Başlangıç Tarihi:";
             // 
             // dtpFinish
             // 
-            this.dtpFinish.Location = new System.Drawing.Point(396, 75);
+            this.dtpFinish.Location = new System.Drawing.Point(462, 92);
+            this.dtpFinish.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dtpFinish.Name = "dtpFinish";
-            this.dtpFinish.Size = new System.Drawing.Size(180, 20);
+            this.dtpFinish.Size = new System.Drawing.Size(210, 25);
             this.dtpFinish.TabIndex = 6;
             // 
             // dtpStart
             // 
-            this.dtpStart.Location = new System.Drawing.Point(396, 49);
+            this.dtpStart.Location = new System.Drawing.Point(462, 60);
+            this.dtpStart.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dtpStart.Name = "dtpStart";
-            this.dtpStart.Size = new System.Drawing.Size(180, 20);
+            this.dtpStart.Size = new System.Drawing.Size(210, 25);
             this.dtpStart.TabIndex = 5;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label2.Location = new System.Drawing.Point(35, 77);
+            this.label2.Location = new System.Drawing.Point(41, 95);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(55, 15);
+            this.label2.Size = new System.Drawing.Size(69, 20);
             this.label2.TabIndex = 48;
             this.label2.Text = "Liste Adı:";
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(96, 74);
+            this.txtName.Location = new System.Drawing.Point(112, 91);
+            this.txtName.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(178, 20);
+            this.txtName.Size = new System.Drawing.Size(208, 25);
             this.txtName.TabIndex = 3;
             // 
             // txtCode
             // 
-            this.txtCode.Location = new System.Drawing.Point(96, 47);
+            this.txtCode.Location = new System.Drawing.Point(112, 58);
+            this.txtCode.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.txtCode.Name = "txtCode";
-            this.txtCode.Size = new System.Drawing.Size(178, 20);
+            this.txtCode.Size = new System.Drawing.Size(208, 25);
             this.txtCode.TabIndex = 2;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label3.Location = new System.Drawing.Point(25, 49);
+            this.label3.Location = new System.Drawing.Point(29, 60);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(65, 15);
+            this.label3.Size = new System.Drawing.Size(81, 20);
             this.label3.TabIndex = 30;
             this.label3.Text = "Liste Kodu:";
             // 
@@ -451,13 +477,15 @@
             this.btnDeleteLine,
             this.bbiPriceUpdate,
             this.bbiBranchDelete,
-            this.bbiApplyAll});
+            this.bbiApplyAll,
+            this.ribbonControl1.SearchEditItem});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
+            this.ribbonControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ribbonControl1.MaxItemId = 1;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
-            this.ribbonControl1.Size = new System.Drawing.Size(915, 140);
+            this.ribbonControl1.Size = new System.Drawing.Size(1086, 156);
             // 
             // ribbonPage1
             // 
@@ -476,19 +504,20 @@
             // pmMenu
             // 
             this.pmMenu.ItemLinks.Add(this.btnDeleteLine);
-            this.pmMenu.ItemLinks.Add(this.bbiPriceUpdate);
             this.pmMenu.ItemLinks.Add(this.bbiApplyAll);
+            this.pmMenu.ItemLinks.Add(this.bbiPriceUpdate);
             this.pmMenu.Name = "pmMenu";
             this.pmMenu.Ribbon = this.ribbonControl1;
             // 
             // FrmBuyList
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(915, 670);
+            this.ClientSize = new System.Drawing.Size(1086, 872);
             this.Controls.Add(this.navBar);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.ribbonControl1);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FrmBuyList";
             this.Text = "Satın Alma Fiyat Listesi";
             this.Load += new System.EventHandler(this.FrmBuyList_Load);
