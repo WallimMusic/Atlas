@@ -52,7 +52,7 @@ namespace Erp.Sell
         void FillData()
         {
             db.AddParameterValue("@ref", this._Ref);
-            DataTable dtPlug = db.GetDataTable("select * from StBuyOrder where Ref=@ref");
+            DataTable dtPlug = db.GetDataTable("select * from StSellOrder where Ref=@ref");
             txtCode.SetString(dtPlug.Rows[0][1].ToString());
             txtName.SetString(dtPlug.Rows[0][2].ToString());
             dtpPlugDate.SetDate(DateTime.Parse(dtPlug.Rows[0][3].ToString()));
@@ -62,7 +62,7 @@ namespace Erp.Sell
             ledCustomer.SetValue(int.Parse(dtPlug.Rows[0]["customerRef"].ToString()));
 
             db.AddParameterValue("@ref", this._Ref);
-            DataTable dtPlugDetails = db.GetDataTable("select * from StBuyOrderDetails where orderRef=@ref");
+            DataTable dtPlugDetails = db.GetDataTable("select * from StSellOrderDetails where orderRef=@ref");
             for (int i = 0; i < dtPlugDetails.Rows.Count; i++)
             {
                 DataRow row = dtBox.NewRow();
@@ -241,7 +241,9 @@ namespace Erp.Sell
                 db.AddParameterValue("@branch", branch);
                 db.AddParameterValue("@whouse", wHouse);
                 db.AddParameterValue("@desc", txtDesc.GetString());
+
                 db.AddParameterValue("@totalPrice", allTotal, SqlDbType.Decimal);
+                db.AddParameterValue("@state",true);
                 db.AddParameterValue("@customerRef", ledCustomer.GetValue());
                 db.RunCommand("sp_SellOrder", CommandType.StoredProcedure);
                 db.parameterDelete();
@@ -509,11 +511,45 @@ namespace Erp.Sell
 
         private void btnSave_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            //try
+            //{
+                Save();
+                if (ok == true)
+                {
+                    this.DialogResult = DialogResult.OK;
+                    helper.ClearForm(this);
+                    c.StateStabil(this);
+                    this.Close();
+                }
+            //}
+            //catch (Exception ex)
+            //{
+            //    helper.WriteLog(ex);
+            //}
+        }
+
+        private void btnEscape_ItemClick_1(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void dgwGrid_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
             try
             {
                 Save();
                 if (ok == true)
                 {
+                    db.AddParameterValue("@state", false);
+                    db.AddParameterValue("@ref", this._Ref);
+                    db.AddParameterValue("@date", DateTime.Now.ToShortDateString(), SqlDbType.Date);
+                    db.RunCommand("update StSellOrder set state=@state,okDate=@date where Ref=@ref");
+
                     this.DialogResult = DialogResult.OK;
                     helper.ClearForm(this);
                     c.StateStabil(this);
@@ -524,11 +560,6 @@ namespace Erp.Sell
             {
                 helper.WriteLog(ex);
             }
-        }
-
-        private void btnEscape_ItemClick_1(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            this.Close();
         }
 
         private void riBtnStockCode_Click(object sender, EventArgs e)

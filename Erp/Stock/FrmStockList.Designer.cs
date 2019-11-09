@@ -82,13 +82,14 @@
             // 
             // grpCount
             // 
-            this.grpCount.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.grpCount.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.grpCount.Controls.Add(this.dgwMove);
-            this.grpCount.Location = new System.Drawing.Point(768, 316);
+            this.grpCount.Location = new System.Drawing.Point(993, 37);
+            this.grpCount.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.grpCount.Name = "grpCount";
-            this.grpCount.Size = new System.Drawing.Size(506, 310);
+            this.grpCount.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.grpCount.Size = new System.Drawing.Size(480, 720);
             this.grpCount.TabIndex = 16;
             this.grpCount.TabStop = false;
             this.grpCount.Text = "Son Hareketleri";
@@ -96,29 +97,33 @@
             // dgwMove
             // 
             this.dgwMove.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgwMove.Location = new System.Drawing.Point(3, 17);
+            this.dgwMove.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dgwMove.Location = new System.Drawing.Point(3, 20);
             this.dgwMove.MainView = this.grdMove;
+            this.dgwMove.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgwMove.Name = "dgwMove";
-            this.dgwMove.Size = new System.Drawing.Size(500, 290);
+            this.dgwMove.Size = new System.Drawing.Size(474, 696);
             this.dgwMove.TabIndex = 1;
             this.dgwMove.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grdMove});
             // 
             // grdMove
             // 
+            this.grdMove.DetailHeight = 431;
             this.grdMove.GridControl = this.dgwMove;
             this.grdMove.Name = "grdMove";
             this.grdMove.OptionsView.ShowGroupPanel = false;
             // 
             // grpWhouse
             // 
-            this.grpWhouse.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.grpWhouse.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.grpWhouse.Controls.Add(this.dgwWhouse);
-            this.grpWhouse.Location = new System.Drawing.Point(765, 41);
+            this.grpWhouse.Location = new System.Drawing.Point(657, 37);
+            this.grpWhouse.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.grpWhouse.Name = "grpWhouse";
-            this.grpWhouse.Size = new System.Drawing.Size(503, 269);
+            this.grpWhouse.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.grpWhouse.Size = new System.Drawing.Size(333, 720);
             this.grpWhouse.TabIndex = 15;
             this.grpWhouse.TabStop = false;
             this.grpWhouse.Text = "Depo Miktarları";
@@ -126,16 +131,19 @@
             // dgwWhouse
             // 
             this.dgwWhouse.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgwWhouse.Location = new System.Drawing.Point(3, 17);
+            this.dgwWhouse.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dgwWhouse.Location = new System.Drawing.Point(3, 20);
             this.dgwWhouse.MainView = this.grdWhouse;
+            this.dgwWhouse.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgwWhouse.Name = "dgwWhouse";
-            this.dgwWhouse.Size = new System.Drawing.Size(497, 249);
+            this.dgwWhouse.Size = new System.Drawing.Size(327, 696);
             this.dgwWhouse.TabIndex = 0;
             this.dgwWhouse.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grdWhouse});
             // 
             // grdWhouse
             // 
+            this.grdWhouse.DetailHeight = 431;
             this.grdWhouse.GridControl = this.dgwWhouse;
             this.grdWhouse.Name = "grdWhouse";
             this.grdWhouse.OptionsView.ShowGroupPanel = false;
@@ -146,9 +154,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.grpStock.Controls.Add(this.dgwStock);
-            this.grpStock.Location = new System.Drawing.Point(4, 41);
+            this.grpStock.Location = new System.Drawing.Point(5, 45);
+            this.grpStock.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.grpStock.Name = "grpStock";
-            this.grpStock.Size = new System.Drawing.Size(758, 585);
+            this.grpStock.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.grpStock.Size = new System.Drawing.Size(649, 720);
             this.grpStock.TabIndex = 14;
             this.grpStock.TabStop = false;
             this.grpStock.Text = "Stoklar";
@@ -156,19 +166,23 @@
             // dgwStock
             // 
             this.dgwStock.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgwStock.Location = new System.Drawing.Point(3, 17);
+            this.dgwStock.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dgwStock.Location = new System.Drawing.Point(3, 20);
             this.dgwStock.MainView = this.grdStock;
+            this.dgwStock.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgwStock.Name = "dgwStock";
-            this.dgwStock.Size = new System.Drawing.Size(752, 565);
+            this.dgwStock.Size = new System.Drawing.Size(643, 696);
             this.dgwStock.TabIndex = 6;
             this.dgwStock.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grdStock});
             // 
             // grdStock
             // 
+            this.grdStock.DetailHeight = 431;
             this.grdStock.GridControl = this.dgwStock;
             this.grdStock.Name = "grdStock";
             this.grdStock.OptionsView.ShowGroupPanel = false;
+            this.grdStock.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.grdStock_FocusedRowChanged);
             // 
             // ribbonControl1
             // 
@@ -196,12 +210,13 @@
             this.barButtonItem3,
             this.barButtonItem4});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
+            this.ribbonControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ribbonControl1.MaxItemId = 1;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
             this.ribbonControl1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.OfficeUniversal;
-            this.ribbonControl1.Size = new System.Drawing.Size(1273, 45);
+            this.ribbonControl1.Size = new System.Drawing.Size(1485, 53);
             // 
             // bbiAdd
             // 
@@ -426,13 +441,14 @@
             this._delete = true;
             this._show = true;
             this._update = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1273, 636);
+            this.ClientSize = new System.Drawing.Size(1485, 783);
             this.Controls.Add(this.grpCount);
             this.Controls.Add(this.grpWhouse);
             this.Controls.Add(this.grpStock);
             this.Controls.Add(this.ribbonControl1);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FrmStockList";
             this.Text = "Stok Listesi";
             this.Load += new System.EventHandler(this.FrmStockList_Load);

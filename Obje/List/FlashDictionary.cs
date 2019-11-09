@@ -39,6 +39,23 @@ namespace Obje.List
             { 401, "Tutar" }
         };
 
+        public static readonly Dictionary<int, string> movementTypesOnStock = new Dictionary<int, string>
+        {
+            { 500, "Satınalma" },
+            { 501, "Satınalma İadesi" },
+            { 502, "Toplu Satış" },
+            { 503, "Toplu Satış İadesi" },
+            { 504, "Perakende Satış" },
+            { 505, "Perakende Satış İadesi" },
+            { 506, "Açılış Fişi" },
+            { 507, "Açılış Fişi İadesi" },
+            { 508, "Sayım Fişi" },
+            { 509, "Sayım Fişi İadesi" },
+            { 508, "Depolar Arası Transfer" },
+            { 509, "Depolar Arası Transfer İadesi" }
+        };
+
+
 
 
     }

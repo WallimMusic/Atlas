@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmSellOrder));
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtDesc = new Obje.Companents.AtlasTextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -57,36 +57,37 @@
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.pmMenu = new DevExpress.XtraBars.PopupMenu(this.components);
+            this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
+            this.btnSave = new DevExpress.XtraBars.BarButtonItem();
+            this.btnEscape = new DevExpress.XtraBars.BarButtonItem();
+            this.btnDeleteLine = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiApplyAll = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiApplyCard = new DevExpress.XtraBars.BarButtonItem();
+            this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.barMenu = new DevExpress.XtraBars.Bar();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgwGrid = new DevExpress.XtraGrid.GridControl();
             this.grdGrid = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.riLedDirection = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.riBtnStockCode = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.riLedUnit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.pmMenu = new DevExpress.XtraBars.PopupMenu(this.components);
-            this.btnSave = new DevExpress.XtraBars.BarButtonItem();
-            this.btnEscape = new DevExpress.XtraBars.BarButtonItem();
-            this.btnDeleteLine = new DevExpress.XtraBars.BarButtonItem();
-            this.bbiApplyAll = new DevExpress.XtraBars.BarButtonItem();
-            this.bbiApplyCard = new DevExpress.XtraBars.BarButtonItem();
-            this.barMenu = new DevExpress.XtraBars.Bar();
-            this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
-            this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pmMenu)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
+            this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgwGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.riLedDirection)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.riBtnStockCode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.riLedUnit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
-            this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pmMenu)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -186,7 +187,7 @@
             this.label6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label6.Location = new System.Drawing.Point(5, 74);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(76, 15);
+            this.label6.Size = new System.Drawing.Size(75, 15);
             this.label6.TabIndex = 41;
             this.label6.Text = "Sipariş Tarihi:";
             // 
@@ -267,7 +268,7 @@
             this.label10.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label10.Location = new System.Drawing.Point(6, 52);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(78, 15);
+            this.label10.Size = new System.Drawing.Size(77, 15);
             this.label10.TabIndex = 39;
             this.label10.Text = "Toplam Adet:";
             // 
@@ -302,98 +303,34 @@
             this.label9.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label9.Location = new System.Drawing.Point(3, 77);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(81, 15);
+            this.label9.Size = new System.Drawing.Size(79, 15);
             this.label9.TabIndex = 38;
             this.label9.Text = "Toplam Tutar:";
-            // 
-            // gridView1
-            // 
-            this.gridView1.GridControl = this.dgwGrid;
-            this.gridView1.Name = "gridView1";
-            // 
-            // dgwGrid
-            // 
-            this.dgwGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgwGrid.Location = new System.Drawing.Point(3, 17);
-            this.dgwGrid.MainView = this.grdGrid;
-            this.dgwGrid.Name = "dgwGrid";
-            this.dgwGrid.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.riLedDirection,
-            this.riBtnStockCode,
-            this.riLedUnit});
-            this.dgwGrid.Size = new System.Drawing.Size(900, 337);
-            this.dgwGrid.TabIndex = 17;
-            this.dgwGrid.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.grdGrid,
-            this.gridView2,
-            this.gridView1});
-            // 
-            // grdGrid
-            // 
-            this.grdGrid.GridControl = this.dgwGrid;
-            this.grdGrid.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Toplam Tutar", null, "", "")});
-            this.grdGrid.Name = "grdGrid";
-            this.grdGrid.OptionsView.ShowGroupPanel = false;
-            this.grdGrid.PopupMenuShowing += new DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventHandler(this.grdGrid_PopupMenuShowing);
-            this.grdGrid.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.grdGrid_CellValueChanged);
-            this.grdGrid.KeyDown += new System.Windows.Forms.KeyEventHandler(this.grdGrid_KeyDown_1);
-            // 
-            // riLedDirection
-            // 
-            this.riLedDirection.AutoHeight = false;
-            this.riLedDirection.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.riLedDirection.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Key", "Ref", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Value", "Yön")});
-            this.riLedDirection.DisplayMember = "Value";
-            this.riLedDirection.Name = "riLedDirection";
-            this.riLedDirection.NullText = "Seçim Yapınız..";
-            this.riLedDirection.ShowFooter = false;
-            this.riLedDirection.ValueMember = "Key";
-            // 
-            // riBtnStockCode
-            // 
-            this.riBtnStockCode.AutoHeight = false;
-            this.riBtnStockCode.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F6), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
-            this.riBtnStockCode.Name = "riBtnStockCode";
-            // 
-            // riLedUnit
-            // 
-            this.riLedUnit.AutoHeight = false;
-            this.riLedUnit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.riLedUnit.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ref", "Ref", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("unitName", "Birim")});
-            this.riLedUnit.DisplayMember = "unitName";
-            this.riLedUnit.Name = "riLedUnit";
-            this.riLedUnit.NullText = "Seçim Yapınız..";
-            this.riLedUnit.ShowFooter = false;
-            this.riLedUnit.ValueMember = "Ref";
-            // 
-            // gridView2
-            // 
-            this.gridView2.GridControl = this.dgwGrid;
-            this.gridView2.Name = "gridView2";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.dgwGrid);
-            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupBox2.Location = new System.Drawing.Point(0, 162);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(906, 357);
-            this.groupBox2.TabIndex = 39;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Satırlar";
             // 
             // pmMenu
             // 
             this.pmMenu.Name = "pmMenu";
             this.pmMenu.Ribbon = this.ribbonControl1;
+            // 
+            // ribbonControl1
+            // 
+            this.ribbonControl1.ColorScheme = DevExpress.XtraBars.Ribbon.RibbonControlColorScheme.Purple;
+            this.ribbonControl1.ExpandCollapseItem.Id = 0;
+            this.ribbonControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
+            this.ribbonControl1.ExpandCollapseItem,
+            this.btnSave,
+            this.btnEscape,
+            this.btnDeleteLine,
+            this.bbiApplyAll,
+            this.bbiApplyCard,
+            this.ribbonControl1.SearchEditItem,
+            this.barButtonItem1});
+            this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
+            this.ribbonControl1.MaxItemId = 2;
+            this.ribbonControl1.Name = "ribbonControl1";
+            this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
+            this.ribbonPage1});
+            this.ribbonControl1.Size = new System.Drawing.Size(906, 128);
             // 
             // btnSave
             // 
@@ -441,6 +378,21 @@
             this.bbiApplyCard.ItemShortcut = new DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.F4);
             this.bbiApplyCard.Name = "bbiApplyCard";
             // 
+            // ribbonPage1
+            // 
+            this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroup1});
+            this.ribbonPage1.Name = "ribbonPage1";
+            this.ribbonPage1.Text = "MainMenu";
+            // 
+            // ribbonPageGroup1
+            // 
+            this.ribbonPageGroup1.ItemLinks.Add(this.btnSave);
+            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem1);
+            this.ribbonPageGroup1.ItemLinks.Add(this.btnEscape);
+            this.ribbonPageGroup1.Name = "ribbonPageGroup1";
+            this.ribbonPageGroup1.Text = "MainMenu";
+            // 
             // barMenu
             // 
             this.barMenu.BarName = "Main menu";
@@ -453,46 +405,107 @@
             this.barMenu.OptionsBar.UseWholeRow = true;
             this.barMenu.Text = "Main menu";
             // 
-            // ribbonControl1
+            // groupBox2
             // 
-            this.ribbonControl1.ColorScheme = DevExpress.XtraBars.Ribbon.RibbonControlColorScheme.Purple;
-            this.ribbonControl1.ExpandCollapseItem.Id = 0;
-            this.ribbonControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.ribbonControl1.ExpandCollapseItem,
-            this.btnSave,
-            this.btnEscape,
-            this.btnDeleteLine,
-            this.bbiApplyAll,
-            this.bbiApplyCard});
-            this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 1;
-            this.ribbonControl1.Name = "ribbonControl1";
-            this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
-            this.ribbonPage1});
-            this.ribbonControl1.Size = new System.Drawing.Size(906, 140);
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Controls.Add(this.dgwGrid);
+            this.groupBox2.Location = new System.Drawing.Point(0, 153);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(906, 367);
+            this.groupBox2.TabIndex = 42;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Satırlar";
             // 
-            // ribbonPage1
+            // dgwGrid
             // 
-            this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup1});
-            this.ribbonPage1.Name = "ribbonPage1";
-            this.ribbonPage1.Text = "MainMenu";
+            this.dgwGrid.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgwGrid.Location = new System.Drawing.Point(3, 17);
+            this.dgwGrid.MainView = this.grdGrid;
+            this.dgwGrid.Name = "dgwGrid";
+            this.dgwGrid.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.riLedDirection,
+            this.riBtnStockCode,
+            this.riLedUnit});
+            this.dgwGrid.Size = new System.Drawing.Size(900, 347);
+            this.dgwGrid.TabIndex = 17;
+            this.dgwGrid.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.grdGrid,
+            this.gridView2,
+            this.gridView1});
             // 
-            // ribbonPageGroup1
+            // grdGrid
             // 
-            this.ribbonPageGroup1.ItemLinks.Add(this.btnSave);
-            this.ribbonPageGroup1.ItemLinks.Add(this.btnEscape);
-            this.ribbonPageGroup1.Name = "ribbonPageGroup1";
-            this.ribbonPageGroup1.Text = "MainMenu";
+            this.grdGrid.GridControl = this.dgwGrid;
+            this.grdGrid.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Toplam Tutar", null, "", "")});
+            this.grdGrid.Name = "grdGrid";
+            this.grdGrid.OptionsView.ShowGroupPanel = false;
+            // 
+            // riLedDirection
+            // 
+            this.riLedDirection.AutoHeight = false;
+            this.riLedDirection.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.riLedDirection.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Key", "Ref", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Value", "Yön")});
+            this.riLedDirection.DisplayMember = "Value";
+            this.riLedDirection.Name = "riLedDirection";
+            this.riLedDirection.NullText = "Seçim Yapınız..";
+            this.riLedDirection.ShowFooter = false;
+            this.riLedDirection.ValueMember = "Key";
+            // 
+            // riBtnStockCode
+            // 
+            this.riBtnStockCode.AutoHeight = false;
+            this.riBtnStockCode.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F6), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.riBtnStockCode.Name = "riBtnStockCode";
+            // 
+            // riLedUnit
+            // 
+            this.riLedUnit.AutoHeight = false;
+            this.riLedUnit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.riLedUnit.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ref", "Ref", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("unitName", "Birim")});
+            this.riLedUnit.DisplayMember = "unitName";
+            this.riLedUnit.Name = "riLedUnit";
+            this.riLedUnit.NullText = "Seçim Yapınız..";
+            this.riLedUnit.ShowFooter = false;
+            this.riLedUnit.ValueMember = "Ref";
+            // 
+            // gridView2
+            // 
+            this.gridView2.GridControl = this.dgwGrid;
+            this.gridView2.Name = "gridView2";
+            // 
+            // gridView1
+            // 
+            this.gridView1.GridControl = this.dgwGrid;
+            this.gridView1.Name = "gridView1";
+            // 
+            // barButtonItem1
+            // 
+            this.barButtonItem1.Caption = "Siparişi Onayla [F5]";
+            this.barButtonItem1.Id = 1;
+            this.barButtonItem1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
+            this.barButtonItem1.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
+            this.barButtonItem1.ItemShortcut = new DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.F5);
+            this.barButtonItem1.Name = "barButtonItem1";
+            this.barButtonItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
             // 
             // FrmSellOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(906, 519);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.ribbonControl1);
             this.Name = "FrmSellOrder";
             this.Text = "Satış Siparişleri";
@@ -501,16 +514,16 @@
             this.groupBox1.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pmMenu)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
+            this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgwGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.riLedDirection)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.riBtnStockCode)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.riLedUnit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pmMenu)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -539,14 +552,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.GroupBox groupBox2;
-        public DevExpress.XtraGrid.GridControl dgwGrid;
-        public DevExpress.XtraGrid.Views.Grid.GridView grdGrid;
-        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit riLedDirection;
-        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit riBtnStockCode;
-        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit riLedUnit;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraBars.PopupMenu pmMenu;
         private DevExpress.XtraBars.Bar barMenu;
         private DevExpress.XtraBars.BarButtonItem btnSave;
@@ -557,5 +562,14 @@
         private DevExpress.XtraBars.Ribbon.RibbonControl ribbonControl1;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        public DevExpress.XtraGrid.GridControl dgwGrid;
+        public DevExpress.XtraGrid.Views.Grid.GridView grdGrid;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit riLedDirection;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit riBtnStockCode;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit riLedUnit;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
     }
 }

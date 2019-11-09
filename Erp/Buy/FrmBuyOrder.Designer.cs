@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmBuyOrder));
             this.txtName = new Obje.Companents.AtlasTextBox();
             this.dtpPlugDate = new Obje.Companents.AtlasDateEdit();
@@ -91,57 +91,53 @@
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(101, 55);
-            this.txtName.Margin = new System.Windows.Forms.Padding(5);
+            this.txtName.Location = new System.Drawing.Point(87, 45);
+            this.txtName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(160, 25);
+            this.txtName.Size = new System.Drawing.Size(137, 20);
             this.txtName.TabIndex = 2;
             // 
             // dtpPlugDate
             // 
-            this.dtpPlugDate.Location = new System.Drawing.Point(101, 86);
-            this.dtpPlugDate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dtpPlugDate.Location = new System.Drawing.Point(87, 70);
             this.dtpPlugDate.Name = "dtpPlugDate";
-            this.dtpPlugDate.Size = new System.Drawing.Size(160, 25);
+            this.dtpPlugDate.Size = new System.Drawing.Size(137, 20);
             this.dtpPlugDate.TabIndex = 3;
             // 
             // ledWhouse
             // 
-            this.ledWhouse.Location = new System.Drawing.Point(345, 54);
-            this.ledWhouse.Margin = new System.Windows.Forms.Padding(5);
+            this.ledWhouse.Location = new System.Drawing.Point(296, 44);
+            this.ledWhouse.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ledWhouse.Name = "ledWhouse";
-            this.ledWhouse.Size = new System.Drawing.Size(157, 25);
+            this.ledWhouse.Size = new System.Drawing.Size(135, 20);
             this.ledWhouse.TabIndex = 5;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label5.Location = new System.Drawing.Point(294, 57);
+            this.label5.Location = new System.Drawing.Point(252, 46);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(49, 20);
+            this.label5.Size = new System.Drawing.Size(38, 15);
             this.label5.TabIndex = 38;
             this.label5.Text = "Depo:";
             // 
             // gridView1
             // 
-            this.gridView1.DetailHeight = 431;
             this.gridView1.GridControl = this.dgwGrid;
             this.gridView1.Name = "gridView1";
             // 
             // dgwGrid
             // 
             this.dgwGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgwGrid.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.dgwGrid.Location = new System.Drawing.Point(3, 20);
+            this.dgwGrid.Location = new System.Drawing.Point(3, 17);
             this.dgwGrid.MainView = this.grdGrid;
-            this.dgwGrid.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgwGrid.Name = "dgwGrid";
             this.dgwGrid.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.riLedDirection,
             this.riBtnStockCode,
             this.riLedUnit});
-            this.dgwGrid.Size = new System.Drawing.Size(1279, 678);
+            this.dgwGrid.Size = new System.Drawing.Size(1095, 550);
             this.dgwGrid.TabIndex = 17;
             this.dgwGrid.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grdGrid,
@@ -150,7 +146,6 @@
             // 
             // grdGrid
             // 
-            this.grdGrid.DetailHeight = 431;
             this.grdGrid.GridControl = this.dgwGrid;
             this.grdGrid.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Toplam Tutar", null, "", "")});
@@ -178,7 +173,7 @@
             // 
             this.riBtnStockCode.AutoHeight = false;
             this.riBtnStockCode.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F6), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F6), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.riBtnStockCode.Name = "riBtnStockCode";
             // 
             // riLedUnit
@@ -197,16 +192,15 @@
             // 
             // gridView2
             // 
-            this.gridView2.DetailHeight = 431;
             this.gridView2.GridControl = this.dgwGrid;
             this.gridView2.Name = "gridView2";
             // 
             // txtCode
             // 
-            this.txtCode.Location = new System.Drawing.Point(101, 26);
-            this.txtCode.Margin = new System.Windows.Forms.Padding(5);
+            this.txtCode.Location = new System.Drawing.Point(87, 21);
+            this.txtCode.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtCode.Name = "txtCode";
-            this.txtCode.Size = new System.Drawing.Size(160, 25);
+            this.txtCode.Size = new System.Drawing.Size(137, 20);
             this.txtCode.TabIndex = 1;
             // 
             // groupBox2
@@ -215,11 +209,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.dgwGrid);
-            this.groupBox2.Location = new System.Drawing.Point(0, 199);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox2.Location = new System.Drawing.Point(0, 162);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox2.Size = new System.Drawing.Size(1285, 702);
+            this.groupBox2.Size = new System.Drawing.Size(1101, 570);
             this.groupBox2.TabIndex = 32;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Satırlar";
@@ -228,9 +220,9 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label3.Location = new System.Drawing.Point(7, 30);
+            this.label3.Location = new System.Drawing.Point(6, 24);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(95, 20);
+            this.label3.Size = new System.Drawing.Size(75, 15);
             this.label3.TabIndex = 51;
             this.label3.Text = "Sipariş Kodu:";
             // 
@@ -238,9 +230,9 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label6.Location = new System.Drawing.Point(6, 91);
+            this.label6.Location = new System.Drawing.Point(5, 74);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(95, 20);
+            this.label6.Size = new System.Drawing.Size(75, 15);
             this.label6.TabIndex = 41;
             this.label6.Text = "Sipariş Tarihi:";
             // 
@@ -248,18 +240,18 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label2.Location = new System.Drawing.Point(19, 60);
+            this.label2.Location = new System.Drawing.Point(16, 49);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(83, 20);
+            this.label2.Size = new System.Drawing.Size(65, 15);
             this.label2.TabIndex = 52;
             this.label2.Text = "Sipariş Adı:";
             // 
             // ledBranch
             // 
-            this.ledBranch.Location = new System.Drawing.Point(345, 22);
-            this.ledBranch.Margin = new System.Windows.Forms.Padding(5);
+            this.ledBranch.Location = new System.Drawing.Point(296, 18);
+            this.ledBranch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ledBranch.Name = "ledBranch";
-            this.ledBranch.Size = new System.Drawing.Size(157, 25);
+            this.ledBranch.Size = new System.Drawing.Size(135, 20);
             this.ledBranch.TabIndex = 4;
             // 
             // pmMenu
@@ -314,12 +306,11 @@
             this.bbiApplyCard,
             this.bbiOrderAccept});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ribbonControl1.MaxItemId = 1;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
-            this.ribbonControl1.Size = new System.Drawing.Size(1285, 156);
+            this.ribbonControl1.Size = new System.Drawing.Size(1101, 128);
             // 
             // btnSave
             // 
@@ -381,48 +372,46 @@
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.ledBranch);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Location = new System.Drawing.Point(0, 39);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox1.Location = new System.Drawing.Point(0, 32);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox1.Size = new System.Drawing.Size(661, 153);
+            this.groupBox1.Size = new System.Drawing.Size(567, 124);
             this.groupBox1.TabIndex = 31;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Genel Bilgiler";
             // 
             // txtDesc
             // 
-            this.txtDesc.Location = new System.Drawing.Point(101, 117);
-            this.txtDesc.Margin = new System.Windows.Forms.Padding(5);
+            this.txtDesc.Location = new System.Drawing.Point(87, 95);
+            this.txtDesc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtDesc.Name = "txtDesc";
-            this.txtDesc.Size = new System.Drawing.Size(401, 25);
+            this.txtDesc.Size = new System.Drawing.Size(344, 20);
             this.txtDesc.TabIndex = 7;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label7.Location = new System.Drawing.Point(26, 117);
+            this.label7.Location = new System.Drawing.Point(22, 95);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(73, 20);
+            this.label7.Size = new System.Drawing.Size(59, 15);
             this.label7.TabIndex = 58;
             this.label7.Text = "Açıklama:";
             // 
             // ledCustomer
             // 
-            this.ledCustomer.Location = new System.Drawing.Point(345, 85);
-            this.ledCustomer.Margin = new System.Windows.Forms.Padding(5);
+            this.ledCustomer.Location = new System.Drawing.Point(296, 69);
+            this.ledCustomer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ledCustomer.Name = "ledCustomer";
-            this.ledCustomer.Size = new System.Drawing.Size(157, 25);
+            this.ledCustomer.Size = new System.Drawing.Size(135, 20);
             this.ledCustomer.TabIndex = 6;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.Location = new System.Drawing.Point(302, 86);
+            this.label1.Location = new System.Drawing.Point(259, 70);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 20);
+            this.label1.Size = new System.Drawing.Size(31, 15);
             this.label1.TabIndex = 56;
             this.label1.Text = "Cari:";
             // 
@@ -430,9 +419,9 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label4.Location = new System.Drawing.Point(296, 26);
+            this.label4.Location = new System.Drawing.Point(254, 21);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(45, 20);
+            this.label4.Size = new System.Drawing.Size(36, 15);
             this.label4.TabIndex = 36;
             this.label4.Text = "Şube:";
             // 
@@ -444,11 +433,9 @@
             this.groupBox3.Controls.Add(this.label10);
             this.groupBox3.Controls.Add(this.label9);
             this.groupBox3.Controls.Add(this.label8);
-            this.groupBox3.Location = new System.Drawing.Point(668, 39);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox3.Location = new System.Drawing.Point(573, 32);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox3.Size = new System.Drawing.Size(372, 153);
+            this.groupBox3.Size = new System.Drawing.Size(319, 124);
             this.groupBox3.TabIndex = 37;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Sipariş Özeti";
@@ -457,9 +444,9 @@
             // 
             this.lblTotal.AutoSize = true;
             this.lblTotal.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblTotal.Location = new System.Drawing.Point(105, 95);
+            this.lblTotal.Location = new System.Drawing.Point(90, 77);
             this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(21, 20);
+            this.lblTotal.Size = new System.Drawing.Size(16, 15);
             this.lblTotal.TabIndex = 42;
             this.lblTotal.Text = "...";
             // 
@@ -467,9 +454,9 @@
             // 
             this.lblquan.AutoSize = true;
             this.lblquan.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblquan.Location = new System.Drawing.Point(105, 64);
+            this.lblquan.Location = new System.Drawing.Point(90, 52);
             this.lblquan.Name = "lblquan";
-            this.lblquan.Size = new System.Drawing.Size(21, 20);
+            this.lblquan.Size = new System.Drawing.Size(16, 15);
             this.lblquan.TabIndex = 41;
             this.lblquan.Text = "...";
             // 
@@ -477,9 +464,9 @@
             // 
             this.lblCount.AutoSize = true;
             this.lblCount.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblCount.Location = new System.Drawing.Point(105, 32);
+            this.lblCount.Location = new System.Drawing.Point(90, 26);
             this.lblCount.Name = "lblCount";
-            this.lblCount.Size = new System.Drawing.Size(21, 20);
+            this.lblCount.Size = new System.Drawing.Size(16, 15);
             this.lblCount.TabIndex = 40;
             this.lblCount.Text = "...";
             // 
@@ -487,9 +474,9 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label10.Location = new System.Drawing.Point(7, 64);
+            this.label10.Location = new System.Drawing.Point(6, 52);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(98, 20);
+            this.label10.Size = new System.Drawing.Size(77, 15);
             this.label10.TabIndex = 39;
             this.label10.Text = "Toplam Adet:";
             // 
@@ -497,9 +484,9 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label9.Location = new System.Drawing.Point(3, 95);
+            this.label9.Location = new System.Drawing.Point(3, 77);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(100, 20);
+            this.label9.Size = new System.Drawing.Size(79, 15);
             this.label9.TabIndex = 38;
             this.label9.Text = "Toplam Tutar:";
             // 
@@ -507,22 +494,21 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label8.Location = new System.Drawing.Point(10, 32);
+            this.label8.Location = new System.Drawing.Point(9, 26);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(95, 20);
+            this.label8.Size = new System.Drawing.Size(75, 15);
             this.label8.TabIndex = 37;
             this.label8.Text = "Kalem Sayısı:";
             // 
             // FrmBuyOrder
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1285, 902);
+            this.ClientSize = new System.Drawing.Size(1101, 700);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.ribbonControl1);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FrmBuyOrder";
             this.Text = "Satınalma Siparişi";
             this.Load += new System.EventHandler(this.FrmBuyOrder_Load);
