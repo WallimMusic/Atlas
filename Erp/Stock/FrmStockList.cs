@@ -261,81 +261,81 @@ namespace Erp.Stock
         private void grdStock_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
 
-            int sRef = 0;
-            sRef = int.Parse(grdStock.GetFocusedRowCellValue("Ref").ToString());
-            if (sRef != 0)
-            {
-                string quantitySql = "", movSql = "";
-                quantitySql = @"SELECT DISTINCT 
-                        s.ref, 
-                        s.sRef, 
-                        s.sBarcode AS Barkod, 
-                        b.size AS Beden, 
-                        b.color AS Renk, 
-                        sysB.name AS Şube, 
-                        SysW.name AS Depo, 
-                        dbo.Tools_CalcStockQuantity(s.sBarcode, s.brRef, s.whRef) AS Quantity
-                    FROM   StStockIO AS s 
-                    INNER JOIN AtlasSys.dbo.sysWhouse AS SysW ON SysW.Ref = s.whRef 
-                    INNER JOIN AtlasSys.dbo.sysBranch AS sysB ON sysB.Ref = s.brRef 
-                    INNER JOIN StStockCardBarcodes AS b ON b.barcode = s.sBarcode
-                    WHERE 
-                        s.lineDirection = '1'
-                        AND s.sRef = @sRef";
+//            int sRef = 0;
+//            sRef = int.Parse(grdStock.GetFocusedRowCellValue("Ref").ToString());
+//            if (sRef != 0)
+//            {
+//                string quantitySql = "", movSql = "";
+//                quantitySql = @"SELECT DISTINCT 
+//                        s.ref, 
+//                        s.sRef, 
+//                        s.sBarcode AS Barkod, 
+//                        b.size AS Beden, 
+//                        b.color AS Renk, 
+//                        sysB.name AS Şube, 
+//                        SysW.name AS Depo, 
+//                        dbo.Tools_CalcStockQuantity(s.sBarcode, s.brRef, s.whRef) AS Quantity
+//                    FROM   StStockIO AS s 
+//                    INNER JOIN AtlasSys.dbo.sysWhouse AS SysW ON SysW.Ref = s.whRef 
+//                    INNER JOIN AtlasSys.dbo.sysBranch AS sysB ON sysB.Ref = s.brRef 
+//                    INNER JOIN StStockCardBarcodes AS b ON b.barcode = s.sBarcode
+//                    WHERE 
+//                        s.lineDirection = '1'
+//                        AND s.sRef = @sRef";
 
-                movSql = @"SELECT TOP 30
-s.ref,
-s.sRef, 
-s.sBarcode AS Barkod, 
-b.size AS Beden, 
-b.color AS Renk, 
-sysB.name AS Şube, 
-SysW.name AS Depo, 
-s.quantity as Adet,
-REPLACE(REPLACE(s.lineDirection,0,'Çıkış'),1,'Giriş') AS Yön,
-s.movementType as Tip
-FROM StStockIO AS s
-INNER JOIN AtlasSys.dbo.sysWhouse AS SysW ON SysW.Ref = s.whRef
-INNER JOIN AtlasSys.dbo.sysBranch AS sysB ON sysB.Ref = s.brRef
-INNER JOIN StStockCardBarcodes AS b ON b.barcode = s.sBarcode
-WHERE S.sRef = @sRef
-ORDER BY ref DESC";
-
-
-                db.AddParameterValue("@sRef", sRef);
-                DataTable dt = db.GetDataTable(quantitySql);
-                if (dt.Rows.Count > 0)
-                {
-                    dgwWhouse.DataSource = dt;
-                    grdWhouse.Columns[0].Visible = false;
-                    grdWhouse.Columns[1].Visible = false;
-                }
-                else
-                {
-                    dt.Rows.Clear();
-                    dgwWhouse.DataSource = dt;
-                    grdWhouse.RefreshData();
-                }
+//                movSql = @"SELECT TOP 30
+//s.ref,
+//s.sRef, 
+//s.sBarcode AS Barkod, 
+//b.size AS Beden, 
+//b.color AS Renk, 
+//sysB.name AS Şube, 
+//SysW.name AS Depo, 
+//s.quantity as Adet,
+//REPLACE(REPLACE(s.lineDirection,0,'Çıkış'),1,'Giriş') AS Yön,
+//s.movementType as Tip
+//FROM StStockIO AS s
+//INNER JOIN AtlasSys.dbo.sysWhouse AS SysW ON SysW.Ref = s.whRef
+//INNER JOIN AtlasSys.dbo.sysBranch AS sysB ON sysB.Ref = s.brRef
+//INNER JOIN StStockCardBarcodes AS b ON b.barcode = s.sBarcode
+//WHERE S.sRef = @sRef
+//ORDER BY ref DESC";
 
 
-                db.AddParameterValue("@sRef", sRef);
-                DataTable dtMov = db.GetDataTable(movSql);
-                if (dtMov.Rows.Count > 0)
-                {
-                    dgwMove.DataSource = dtMov;
-                    grdMove.Columns[0].Visible = false;
-                    grdMove.Columns[1].Visible = false;
-                }
-                else
-                {
-                    dtMov.Rows.Clear();
-                    dgwMove.DataSource = dtMov;
-                    grdMove.RefreshData();
-                }
+//                db.AddParameterValue("@sRef", sRef);
+//                DataTable dt = db.GetDataTable(quantitySql);
+//                if (dt.Rows.Count > 0)
+//                {
+//                    dgwWhouse.DataSource = dt;
+//                    grdWhouse.Columns[0].Visible = false;
+//                    grdWhouse.Columns[1].Visible = false;
+//                }
+//                else
+//                {
+//                    dt.Rows.Clear();
+//                    dgwWhouse.DataSource = dt;
+//                    grdWhouse.RefreshData();
+//                }
 
-                grdMove.BestFitColumns();
-                grdWhouse.BestFitColumns();
-            }
+
+//                db.AddParameterValue("@sRef", sRef);
+//                DataTable dtMov = db.GetDataTable(movSql);
+//                if (dtMov.Rows.Count > 0)
+//                {
+//                    dgwMove.DataSource = dtMov;
+//                    grdMove.Columns[0].Visible = false;
+//                    grdMove.Columns[1].Visible = false;
+//                }
+//                else
+//                {
+//                    dtMov.Rows.Clear();
+//                    dgwMove.DataSource = dtMov;
+//                    grdMove.RefreshData();
+//                }
+
+//                grdMove.BestFitColumns();
+//                grdWhouse.BestFitColumns();
+//            }
         }
     }
 }

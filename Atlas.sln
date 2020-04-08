@@ -1,15 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29911.84
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Erp", "Erp\Erp.csproj", "{BE70F890-8BD1-4171-87E7-D52483B6616F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Atlas.Erp", "Erp\Atlas.Erp.csproj", "{BE70F890-8BD1-4171-87E7-D52483B6616F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Obje", "Obje\Obje.csproj", "{4A03315F-1814-462B-98A9-39F41A0B4DB1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Atlas.Obje", "Obje\Atlas.Obje.csproj", "{4A03315F-1814-462B-98A9-39F41A0B4DB1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sys", "Sys\Sys.csproj", "{05B23CCF-A619-4ACB-8DF1-7F3C4D5F87C4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Atlas.Sys", "Sys\Atlas.Sys.csproj", "{05B23CCF-A619-4ACB-8DF1-7F3C4D5F87C4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IK", "IK\IK.csproj", "{1CA0BCDD-90CC-4FCA-9837-CC8CE8603FC3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Atlas.Ik", "IK\Atlas.Ik.csproj", "{1CA0BCDD-90CC-4FCA-9837-CC8CE8603FC3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,5 +36,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BA048826-0189-4A48-A72C-BFF9A5193439}
 	EndGlobalSection
 EndGlobal

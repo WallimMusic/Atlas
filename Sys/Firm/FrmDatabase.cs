@@ -102,6 +102,8 @@ namespace Sys
 
             if (cmbServer.flashCombo.Properties.Items.Count <= 0)
                 cmbServer.flashCombo.Properties.Items.Add(".");
+
+            cmbServer.flashCombo.Properties.Items.Add(@".\SQLEXPRESS");
         }
 
         void SqlConnectionTest()
